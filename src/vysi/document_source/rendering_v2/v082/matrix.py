@@ -11,9 +11,20 @@ from .svg import Element, Preview, table_page
 
 
 def render_matrix(
-    *, document_id: str, view_id: str, profile: dict[str, Any],
-    check: Callable[[], None], account: Callable[[int], None],
-) -> tuple[list[SurfaceOutput], list[dict[str, Any]], list[GeometryOutput], list[AssetOutput], set[str], list[str]]:
+    *,
+    document_id: str,
+    view_id: str,
+    profile: dict[str, Any],
+    check: Callable[[], None],
+    account: Callable[[int], None],
+) -> tuple[
+    list[SurfaceOutput],
+    list[dict[str, Any]],
+    list[GeometryOutput],
+    list[AssetOutput],
+    set[str],
+    list[str],
+]:
     surfaces: list[SurfaceOutput] = []
     spaces: list[dict[str, Any]] = []
     geometries: list[GeometryOutput] = []
@@ -34,12 +45,16 @@ def render_matrix(
             check()
             row_start = tile[0] * MAX_ROWS
             column_start = tile[1] * MAX_COLUMNS
-            page_cells = [
+            page_cells: list[tuple[tuple[str, ...], int, int, str]] = [
                 ((cell_id,), row - row_start, column - column_start, value)
                 for cell_id, row, column, value in buckets.get(tile, [])
             ]
             page = table_page(
-                title=f"Worksheet {worksheet.get('name', worksheet_id)}",
+                title=(
+                    f"Worksheet {worksheet.get('name', worksheet_id)} "
+                    f"rows {row_start + 1}-{row_start + MAX_ROWS}, "
+                    f"cols {column_start + 1}-{column_start + MAX_COLUMNS}"
+                ),
                 cells=page_cells,
                 check=check,
                 max_rows=MAX_ROWS,
@@ -55,9 +70,15 @@ def render_matrix(
                 page.omitted,
             )
             surface, space, geometry, asset = preview_outputs(
-                document_id=document_id, view_id=view_id, ordinal=ordinal,
-                kind="worksheet_print_page", preview=page, width=1123, height=794,
-                check=check, account=account,
+                document_id=document_id,
+                view_id=view_id,
+                ordinal=ordinal,
+                kind="worksheet_print_page",
+                preview=page,
+                width=1123,
+                height=794,
+                check=check,
+                account=account,
             )
             surfaces.append(surface)
             spaces.append(space)
