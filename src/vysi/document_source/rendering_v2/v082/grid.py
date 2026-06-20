@@ -13,3 +13,7 @@ def occupied_tiles(records: list[GridCell]) -> dict[tuple[int, int], list[GridCe
         key = (row // MAX_ROWS, column // MAX_COLUMNS)
         buckets[key].append((cell_id, row, column, value))
     return dict(sorted(buckets.items()))
+
+
+def reference_counts(surfaces: list[object]) -> int:
+    return len(surfaces)
