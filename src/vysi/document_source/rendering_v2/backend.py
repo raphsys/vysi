@@ -137,18 +137,33 @@ def select_renderer(
 ) -> SourceRenderer:
     candidates: list[tuple[int, str, SourceRenderer]] = []
     reasons: list[str] = []
+    seen_ids: set[str] = set()
     for renderer in renderers:
-        capability = renderer.capability(profile_kind, requested_profile)
+        renderer_id = str(renderer.renderer_id)
+        if not renderer_id:
+            reasons.append("renderer sans identifiant")
+            continue
+        if renderer_id in seen_ids:
+            reasons.append(f"{renderer_id}: identifiant de backend dupliqué")
+            continue
+        seen_ids.add(renderer_id)
+        try:
+            capability = renderer.capability(profile_kind, requested_profile)
+        except Exception as exc:
+            reasons.append(f"{renderer_id}: capability probe failed: {type(exc).__name__}: {exc}")
+            continue
         if capability.supported:
-            candidates.append((capability.priority, renderer.renderer_id, renderer))
+            if capability.priority < 0:
+                reasons.append(f"{renderer_id}: priorité négative invalide")
+                continue
+            candidates.append((capability.priority, renderer_id, renderer))
         elif capability.reason:
-            reasons.append(f"{renderer.renderer_id}: {capability.reason}")
+            reasons.append(f"{renderer_id}: {capability.reason}")
     if not candidates:
         detail = "; ".join(sorted(reasons)) or "aucun backend enregistré"
         raise RenderingError(
             f"Aucun backend compatible pour {profile_kind}/{requested_profile}: {detail}",
             unsupported=True,
         )
-    # Priorité décroissante, puis identifiant croissant pour rester déterministe.
     candidates.sort(key=lambda item: (-item[0], item[1]))
     return candidates[0][2]
