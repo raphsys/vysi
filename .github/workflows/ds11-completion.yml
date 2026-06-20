@@ -1,6 +1,8 @@
 name: DS11 completion
 
 on:
+  push:
+    branches: [ds11-completion-082]
   pull_request:
     branches: [main]
   workflow_dispatch:
