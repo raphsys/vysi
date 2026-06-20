@@ -40,3 +40,44 @@ def prepare_output(output: RenderParts) -> RenderParts:
         )
         warnings.append("renderable_native_candidates_omitted")
     return surfaces, spaces, geometries, assets, candidates, warnings
+
+
+def finalize_output(
+    *,
+    output: RenderParts,
+    view_id: str,
+    requested_profile: str,
+    renderer_id: str,
+    producer_version: str,
+    environment: dict[str, Any],
+    environment_hash: str,
+) -> RenderOutput:
+    surfaces, spaces, geometries, assets, _candidates, warnings = prepare_output(output)
+    serialized = {ref for surface in surfaces for ref in surface.serialized_native_unit_refs}
+    visible = {ref for surface in surfaces for ref in surface.native_unit_refs}
+    clipped = {ref for surface in surfaces for ref in surface.clipped_native_unit_refs}
+    omitted = {ref for surface in surfaces for ref in surface.omitted_native_unit_refs}
+    view = {
+        "view_id": view_id,
+        "view_kind": "technical_preview",
+        "requested_profile": requested_profile,
+        "renderer": renderer_id,
+        "renderer_version": producer_version,
+        "environment_hash": environment_hash,
+        "environment": environment,
+        "determinism": "environment_bound",
+        "status": "partial",
+        "locale": str(environment["locale"]),
+        "timezone": str(environment["timezone"]),
+        "font_substitutions": ["document_fonts->generic_monospace"],
+        "warnings": sorted(set(warnings)),
+        "measurement_basis": "technical_preview_visibility",
+        "visibility_summary": {
+            "serialized_refs": len(serialized),
+            "visible_refs": len(visible),
+            "clipped_refs": len(clipped),
+            "omitted_refs": len(omitted),
+            "visual_fidelity_assessed": True,
+        },
+    }
+    return RenderOutput(view, tuple(surfaces), tuple(spaces), tuple(geometries), tuple(assets))
