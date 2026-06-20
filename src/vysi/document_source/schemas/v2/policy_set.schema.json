@@ -1,0 +1,221 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/policy_set.schema.json",
+  "title": "PolicySet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "ingestion_policy",
+    "security_policy",
+    "resource_budget",
+    "rendering_policy",
+    "preservation_policy",
+    "strictness_policy"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "ingestion_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "allow_partial",
+        "resume",
+        "cache"
+      ],
+      "properties": {
+        "allow_partial": {
+          "type": "boolean"
+        },
+        "resume": {
+          "type": "boolean"
+        },
+        "cache": {
+          "type": "string",
+          "enum": [
+            "disabled",
+            "read",
+            "read_write"
+          ]
+        }
+      }
+    },
+    "security_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "network",
+        "active_content",
+        "embedded_documents",
+        "external_references",
+        "encryption"
+      ],
+      "properties": {
+        "network": {
+          "type": "string",
+          "enum": [
+            "deny",
+            "allowlist"
+          ]
+        },
+        "active_content": {
+          "type": "string",
+          "enum": [
+            "deny",
+            "inventory_only"
+          ]
+        },
+        "embedded_documents": {
+          "type": "string",
+          "enum": [
+            "deny",
+            "inventory_only",
+            "extract_inert"
+          ]
+        },
+        "external_references": {
+          "type": "string",
+          "enum": [
+            "deny",
+            "inventory_only"
+          ]
+        },
+        "encryption": {
+          "type": "string",
+          "enum": [
+            "reject",
+            "allow_with_secret_ref"
+          ]
+        }
+      }
+    },
+    "resource_budget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "max_source_bytes",
+        "max_decompressed_bytes",
+        "max_parts",
+        "max_memory_bytes",
+        "max_cpu_seconds",
+        "max_wall_seconds",
+        "max_temp_bytes",
+        "max_child_depth"
+      ],
+      "properties": {
+        "max_source_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_decompressed_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_parts": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_memory_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_cpu_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_wall_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_temp_bytes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_child_depth": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "rendering_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "profiles"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "none",
+            "on_demand",
+            "required"
+          ]
+        },
+        "profiles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "preservation_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "preserve_original",
+        "preserve_unknown_parts",
+        "extract_native_resources"
+      ],
+      "properties": {
+        "preserve_original": {
+          "const": true
+        },
+        "preserve_unknown_parts": {
+          "type": "boolean"
+        },
+        "extract_native_resources": {
+          "type": "boolean"
+        }
+      }
+    },
+    "strictness_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "major_loss_action",
+        "minor_loss_action"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": [
+            "strict",
+            "balanced",
+            "permissive"
+          ]
+        },
+        "major_loss_action": {
+          "type": "string",
+          "enum": [
+            "reject",
+            "review"
+          ]
+        },
+        "minor_loss_action": {
+          "type": "string",
+          "enum": [
+            "review",
+            "allow"
+          ]
+        }
+      }
+    }
+  }
+}

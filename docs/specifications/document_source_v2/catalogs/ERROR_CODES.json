@@ -1,0 +1,383 @@
+{
+  "schema": "vysi.document_source.error_code_catalog.v2",
+  "codes": [
+    {
+      "code": "DS-RUN-001",
+      "domain": "execution",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "entrée ou état invalide"
+    },
+    {
+      "code": "DS-RUN-002",
+      "domain": "execution",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "opération impossible ou non prise en charge"
+    },
+    {
+      "code": "DS-RUN-003",
+      "domain": "execution",
+      "default_severity": "warning",
+      "retryable_default": true,
+      "title": "limite, interruption ou dépendance temporaire"
+    },
+    {
+      "code": "DS-REQ-001",
+      "domain": "request",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "entrée ou état invalide"
+    },
+    {
+      "code": "DS-REQ-002",
+      "domain": "request",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "opération impossible ou non prise en charge"
+    },
+    {
+      "code": "DS-REQ-003",
+      "domain": "request",
+      "default_severity": "warning",
+      "retryable_default": true,
+      "title": "limite, interruption ou dépendance temporaire"
+    },
+    {
+      "code": "DS-ACQ-001",
+      "domain": "acquisition",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "entrée ou état invalide"
+    },
+    {
+      "code": "DS-ACQ-002",
+      "domain": "acquisition",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "opération impossible ou non prise en charge"
+    },
+    {
+      "code": "DS-ACQ-003",
+      "domain": "acquisition",
+      "default_severity": "warning",
+      "retryable_default": true,
+      "title": "limite, interruption ou dépendance temporaire"
+    },
+    {
+      "code": "DS-PRB-001",
+      "domain": "probe",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "entrée ou état invalide"
+    },
+    {
+      "code": "DS-PRB-002",
+      "domain": "probe",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "opération impossible ou non prise en charge"
+    },
+    {
+      "code": "DS-PRB-003",
+      "domain": "probe",
+      "default_severity": "warning",
+      "retryable_default": true,
+      "title": "limite, interruption ou dépendance temporaire"
+    },
+    {
+      "code": "DS-SEC-001",
+      "domain": "security",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "entrée ou état invalide"
+    },
+    {
+      "code": "DS-SEC-002",
+      "domain": "security",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "opération impossible ou non prise en charge"
+    },
+    {
+      "code": "DS-SEC-003",
+      "domain": "security",
+      "default_severity": "warning",
+      "retryable_default": true,
+      "title": "limite, interruption ou dépendance temporaire"
+    },
+    {
+      "code": "DS-LIM-001",
+      "domain": "limits",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "entrée ou état invalide"
+    },
+    {
+      "code": "DS-LIM-002",
+      "domain": "limits",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "opération impossible ou non prise en charge"
+    },
+    {
+      "code": "DS-LIM-003",
+      "domain": "limits",
+      "default_severity": "warning",
+      "retryable_default": true,
+      "title": "limite, interruption ou dépendance temporaire"
+    },
+    {
+      "code": "DS-IDN-001",
+      "domain": "identity",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "entrée ou état invalide"
+    },
+    {
+      "code": "DS-IDN-002",
+      "domain": "identity",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "opération impossible ou non prise en charge"
+    },
+    {
+      "code": "DS-IDN-003",
+      "domain": "identity",
+      "default_severity": "warning",
+      "retryable_default": true,
+      "title": "limite, interruption ou dépendance temporaire"
+    },
+    {
+      "code": "DS-ACC-001",
+      "domain": "access",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "entrée ou état invalide"
+    },
+    {
+      "code": "DS-ACC-002",
+      "domain": "access",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "opération impossible ou non prise en charge"
+    },
+    {
+      "code": "DS-ACC-003",
+      "domain": "access",
+      "default_severity": "warning",
+      "retryable_default": true,
+      "title": "limite, interruption ou dépendance temporaire"
+    },
+    {
+      "code": "DS-CNT-001",
+      "domain": "container",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "entrée ou état invalide"
+    },
+    {
+      "code": "DS-CNT-002",
+      "domain": "container",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "opération impossible ou non prise en charge"
+    },
+    {
+      "code": "DS-CNT-003",
+      "domain": "container",
+      "default_severity": "warning",
+      "retryable_default": true,
+      "title": "limite, interruption ou dépendance temporaire"
+    },
+    {
+      "code": "DS-DEC-001",
+      "domain": "decode",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "entrée ou état invalide"
+    },
+    {
+      "code": "DS-DEC-002",
+      "domain": "decode",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "opération impossible ou non prise en charge"
+    },
+    {
+      "code": "DS-DEC-003",
+      "domain": "decode",
+      "default_severity": "warning",
+      "retryable_default": true,
+      "title": "limite, interruption ou dépendance temporaire"
+    },
+    {
+      "code": "DS-NAT-001",
+      "domain": "native",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "entrée ou état invalide"
+    },
+    {
+      "code": "DS-NAT-002",
+      "domain": "native",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "opération impossible ou non prise en charge"
+    },
+    {
+      "code": "DS-NAT-003",
+      "domain": "native",
+      "default_severity": "warning",
+      "retryable_default": true,
+      "title": "limite, interruption ou dépendance temporaire"
+    },
+    {
+      "code": "DS-IR-001",
+      "domain": "technical_ir",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "entrée ou état invalide"
+    },
+    {
+      "code": "DS-IR-002",
+      "domain": "technical_ir",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "opération impossible ou non prise en charge"
+    },
+    {
+      "code": "DS-IR-003",
+      "domain": "technical_ir",
+      "default_severity": "warning",
+      "retryable_default": true,
+      "title": "limite, interruption ou dépendance temporaire"
+    },
+    {
+      "code": "DS-RND-001",
+      "domain": "rendering",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "entrée ou état invalide"
+    },
+    {
+      "code": "DS-RND-002",
+      "domain": "rendering",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "opération impossible ou non prise en charge"
+    },
+    {
+      "code": "DS-RND-003",
+      "domain": "rendering",
+      "default_severity": "warning",
+      "retryable_default": true,
+      "title": "limite, interruption ou dépendance temporaire"
+    },
+    {
+      "code": "DS-MAP-001",
+      "domain": "mapping",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "entrée ou état invalide"
+    },
+    {
+      "code": "DS-MAP-002",
+      "domain": "mapping",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "opération impossible ou non prise en charge"
+    },
+    {
+      "code": "DS-MAP-003",
+      "domain": "mapping",
+      "default_severity": "warning",
+      "retryable_default": true,
+      "title": "limite, interruption ou dépendance temporaire"
+    },
+    {
+      "code": "DS-COV-001",
+      "domain": "coverage",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "entrée ou état invalide"
+    },
+    {
+      "code": "DS-COV-002",
+      "domain": "coverage",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "opération impossible ou non prise en charge"
+    },
+    {
+      "code": "DS-COV-003",
+      "domain": "coverage",
+      "default_severity": "warning",
+      "retryable_default": true,
+      "title": "limite, interruption ou dépendance temporaire"
+    },
+    {
+      "code": "DS-PRS-001",
+      "domain": "preservation",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "entrée ou état invalide"
+    },
+    {
+      "code": "DS-PRS-002",
+      "domain": "preservation",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "opération impossible ou non prise en charge"
+    },
+    {
+      "code": "DS-PRS-003",
+      "domain": "preservation",
+      "default_severity": "warning",
+      "retryable_default": true,
+      "title": "limite, interruption ou dépendance temporaire"
+    },
+    {
+      "code": "DS-VAL-001",
+      "domain": "validation",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "entrée ou état invalide"
+    },
+    {
+      "code": "DS-VAL-002",
+      "domain": "validation",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "opération impossible ou non prise en charge"
+    },
+    {
+      "code": "DS-VAL-003",
+      "domain": "validation",
+      "default_severity": "warning",
+      "retryable_default": true,
+      "title": "limite, interruption ou dépendance temporaire"
+    },
+    {
+      "code": "DS-PST-001",
+      "domain": "persistence",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "entrée ou état invalide"
+    },
+    {
+      "code": "DS-PST-002",
+      "domain": "persistence",
+      "default_severity": "error",
+      "retryable_default": false,
+      "title": "opération impossible ou non prise en charge"
+    },
+    {
+      "code": "DS-PST-003",
+      "domain": "persistence",
+      "default_severity": "warning",
+      "retryable_default": true,
+      "title": "limite, interruption ou dépendance temporaire"
+    }
+  ]
+}

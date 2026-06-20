@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/profile_plain_text.schema.json",
+  "title": "PlainTextNativeProfile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "profile_kind",
+    "profile_version",
+    "document_id",
+    "encoding",
+    "bom",
+    "newline_style",
+    "lines"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "profile_kind": {
+      "const": "plain_text"
+    },
+    "profile_version": {
+      "const": "2.0.0"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "encoding": {
+      "type": "string"
+    },
+    "encoding_confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "bom": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "newline_style": {
+      "type": "string",
+      "enum": [
+        "lf",
+        "crlf",
+        "cr",
+        "mixed",
+        "none"
+      ]
+    },
+    "unicode_normalization": {
+      "type": "string"
+    },
+    "lines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "unit_id",
+          "ordinal",
+          "byte_start",
+          "byte_end",
+          "text"
+        ],
+        "properties": {
+          "unit_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "ordinal": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "byte_start": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "byte_end": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "text": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "control_findings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

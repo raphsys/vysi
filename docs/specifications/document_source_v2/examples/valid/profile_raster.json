@@ -1,0 +1,32 @@
+{
+  "animated": false,
+  "document_id": "document_image_example001",
+  "document_surface_policy": "single_surface",
+  "frames": [
+    {
+      "duration_ms": null,
+      "frame_id": "frame_example001",
+      "height_px": 100,
+      "icc_profile_ref": null,
+      "ordinal": 0,
+      "orientation": 1,
+      "source_address": "image:frame[0]",
+      "width_px": 100
+    }
+  ],
+  "header": {
+    "content_hash": "a93503dea921afc78679c092d594583915f821a60a44293ce9afeabd1b609c9b",
+    "contract_id": "profile_raster_qtcrpqvkkr23ngjf3n7esgt4lx",
+    "created_at": "2026-06-20T07:10:14.040281Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.4.0",
+    "revision": 1,
+    "schema_id": "document_source.profile_raster",
+    "schema_version": "2.2.0",
+    "status": "ok",
+    "supersedes": null
+  },
+  "profile_kind": "raster",
+  "profile_version": "2.0.0"
+}

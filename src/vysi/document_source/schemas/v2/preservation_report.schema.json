@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/preservation_report.schema.json",
+  "title": "PreservationReport",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "document_id",
+    "transitions",
+    "losses",
+    "opaque_preserved_count",
+    "roundtrip_risk"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "transitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "from_layer",
+          "to_layer",
+          "state",
+          "producer",
+          "input_refs",
+          "output_refs",
+          "producer_version",
+          "method",
+          "determinism",
+          "exactness",
+          "confidence",
+          "evidence_refs",
+          "loss_refs"
+        ],
+        "properties": {
+          "from_layer": {
+            "type": "string"
+          },
+          "to_layer": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "lossless",
+              "lossy_declared",
+              "partial",
+              "failed",
+              "not_run"
+            ]
+          },
+          "producer": {
+            "type": "string"
+          },
+          "input_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "output_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "producer_version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "method": {
+            "type": "string",
+            "minLength": 1
+          },
+          "determinism": {
+            "type": "string",
+            "enum": [
+              "deterministic",
+              "nondeterministic"
+            ]
+          },
+          "exactness": {
+            "type": "string",
+            "enum": [
+              "exact",
+              "approximate",
+              "inferred",
+              "not_applicable"
+            ]
+          },
+          "confidence": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0,
+            "maximum": 1
+          },
+          "evidence_refs": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "loss_refs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "state": {
+                  "const": "not_run"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "confidence": {
+                  "type": "null"
+                },
+                "exactness": {
+                  "const": "not_applicable"
+                }
+              }
+            },
+            "else": {
+              "properties": {
+                "confidence": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "exactness": {
+                  "enum": [
+                    "exact",
+                    "approximate",
+                    "inferred"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "losses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "loss_id",
+          "feature",
+          "stage",
+          "severity",
+          "kind",
+          "description",
+          "source_refs"
+        ],
+        "properties": {
+          "loss_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "feature": {
+            "type": "string"
+          },
+          "stage": {
+            "type": "string"
+          },
+          "severity": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/severity"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "loss",
+              "approximation",
+              "unsupported",
+              "omission",
+              "repair",
+              "conversion"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    "opaque_preserved_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "roundtrip_risk": {
+      "type": "string",
+      "enum": [
+        "none",
+        "low",
+        "medium",
+        "high",
+        "unknown"
+      ]
+    }
+  }
+}

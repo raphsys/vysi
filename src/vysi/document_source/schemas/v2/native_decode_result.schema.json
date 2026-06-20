@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/native_decode_result.schema.json",
+  "title": "NativeDecodeResult",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "document_id",
+    "reader_attempt_ref",
+    "selected_reader",
+    "profile_kind",
+    "decode_state",
+    "output_slots"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "reader_attempt_ref": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/reference"
+    },
+    "selected_reader": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reader_id",
+        "reader_version",
+        "sandbox_profile"
+      ],
+      "properties": {
+        "reader_id": {
+          "type": "string"
+        },
+        "reader_version": {
+          "type": "string"
+        },
+        "sandbox_profile": {
+          "type": "string"
+        }
+      }
+    },
+    "profile_kind": {
+      "type": "string",
+      "enum": [
+        "plain_text",
+        "wordprocessing",
+        "spreadsheet",
+        "presentation",
+        "fixed_layout",
+        "raster",
+        "legacy_ole",
+        "unknown"
+      ]
+    },
+    "decode_state": {
+      "type": "string",
+      "enum": [
+        "complete",
+        "partial",
+        "unsupported",
+        "blocked",
+        "failed"
+      ]
+    },
+    "output_slots": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "native",
+        "styles",
+        "relationships",
+        "metadata",
+        "annotations",
+        "resources"
+      ],
+      "properties": {
+        "native": {
+          "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+        },
+        "styles": {
+          "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+        },
+        "relationships": {
+          "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+        },
+        "metadata": {
+          "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+        },
+        "annotations": {
+          "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+        },
+        "resources": {
+          "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+        }
+      }
+    },
+    "error_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+      }
+    }
+  }
+}

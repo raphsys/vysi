@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/checkpoint_manifest.schema.json",
+  "title": "CheckpointManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "run_id",
+    "request_hash",
+    "completed_nodes",
+    "artifacts"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "run_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "request_hash": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/sha256"
+    },
+    "completed_nodes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^DS(?:0[0-9]|1[0-5])$"
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/reference"
+      }
+    },
+    "software_version": {
+      "type": "string"
+    },
+    "compatible_until": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

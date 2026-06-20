@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/security_clearance.schema.json",
+  "title": "SecurityClearance",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "probe_ref",
+    "decision",
+    "findings",
+    "limit_observations",
+    "effective_restrictions"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "probe_ref": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/reference"
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "allow",
+        "allow_restricted",
+        "review",
+        "block"
+      ]
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/errorRecord"
+      }
+    },
+    "limit_observations": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/limitObservation"
+      }
+    },
+    "effective_restrictions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "sandbox_profile": {
+      "type": "string"
+    },
+    "network_enabled": {
+      "const": false
+    },
+    "active_content_execution_enabled": {
+      "const": false
+    }
+  }
+}

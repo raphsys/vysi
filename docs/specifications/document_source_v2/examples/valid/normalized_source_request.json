@@ -1,0 +1,41 @@
+{
+  "header": {
+    "schema_id": "document_source.normalized_source_request",
+    "schema_version": "2.1.0",
+    "contract_id": "normalized_request_example001",
+    "content_hash": "81a0efa663178f6b66859524975208e78077b5f50a1ccffea7d35be2daa0774f",
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "created_at": "2026-06-19T20:00:00Z",
+    "status": "ok",
+    "revision": 1,
+    "supersedes": null,
+    "extensions": {}
+  },
+  "request_id": "request_example001",
+  "request_hash": "2222222222222222222222222222222222222222222222222222222222222222",
+  "source_request_ref": {
+    "path": "request/source_ingestion_request.json",
+    "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "schema_id": "document_source.source_ingestion_request",
+    "schema_version": "2.0.0",
+    "contract_id": "request_contract_example001"
+  },
+  "normalization_warnings": [],
+  "effective_policy_ref": {
+    "path": "request/policy_set.json",
+    "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "schema_id": "document_source.policy_set",
+    "schema_version": "2.0.0",
+    "contract_id": "policy_contract_example001"
+  },
+  "normalized_sources": [
+    {
+      "locator_id": "locator_example001",
+      "kind": "local_file",
+      "role": "primary",
+      "uri": "/input/sample.docx",
+      "display_name": "sample.docx"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": true,
+  "$id": "https://raphsys.local/schemas/document_source/native_document.schema.json",
+  "title": "native_document",
+  "required": [
+    "header",
+    "profile",
+    "family",
+    "root_ids",
+    "nodes"
+  ],
+  "properties": {
+    "header": {
+      "type": "object",
+      "required": [
+        "schema_id",
+        "schema_version",
+        "contract_id",
+        "created_at",
+        "producer"
+      ]
+    },
+    "profile": {
+      "type": "string"
+    },
+    "family": {
+      "type": "string"
+    },
+    "root_ids": {
+      "type": "array",
+      "minItems": 1
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1
+    }
+  }
+}

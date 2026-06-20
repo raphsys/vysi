@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/geometry_catalog.schema.json",
+  "title": "GeometryCatalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "document_id",
+    "coordinate_spaces",
+    "geometries"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "coordinate_spaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "coordinate_space_id",
+          "owner_id",
+          "unit",
+          "origin",
+          "axis_x",
+          "axis_y"
+        ],
+        "properties": {
+          "coordinate_space_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "owner_id": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string",
+            "enum": [
+              "pt",
+              "px",
+              "emu",
+              "cell",
+              "character",
+              "normalized"
+            ]
+          },
+          "origin": {
+            "type": "string",
+            "enum": [
+              "top_left",
+              "bottom_left",
+              "logical"
+            ]
+          },
+          "axis_x": {
+            "type": "string"
+          },
+          "axis_y": {
+            "type": "string"
+          },
+          "transform_to_parent": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "minItems": 6,
+            "maxItems": 6,
+            "items": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "geometries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "geometry_id",
+          "owner_id",
+          "coordinate_space_id",
+          "geometry_kind",
+          "source"
+        ],
+        "properties": {
+          "geometry_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "owner_id": {
+            "type": "string"
+          },
+          "coordinate_space_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "geometry_kind": {
+            "type": "string",
+            "enum": [
+              "bbox",
+              "polygon",
+              "range",
+              "cell_address",
+              "none"
+            ]
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "native",
+              "rendered",
+              "derived",
+              "inferred"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    }
+  }
+}

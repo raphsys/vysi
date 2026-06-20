@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/profile_spreadsheet.schema.json",
+  "title": "SpreadsheetNativeProfile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "profile_kind",
+    "profile_version",
+    "document_id",
+    "worksheets",
+    "cells",
+    "calculation_model"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "profile_kind": {
+      "const": "spreadsheet"
+    },
+    "profile_version": {
+      "const": "2.0.0"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "worksheets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "worksheet_id",
+          "name",
+          "ordinal",
+          "visibility",
+          "source_address"
+        ],
+        "properties": {
+          "worksheet_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "name": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "visibility": {
+            "type": "string",
+            "enum": [
+              "visible",
+              "hidden",
+              "very_hidden"
+            ]
+          },
+          "source_address": {
+            "type": "string"
+          },
+          "used_range": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "print_areas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "cells": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "cell_id",
+          "worksheet_id",
+          "address",
+          "value_kind",
+          "source_address"
+        ],
+        "properties": {
+          "cell_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "worksheet_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "address": {
+            "type": "string",
+            "pattern": "^[A-Z]+[1-9][0-9]*$"
+          },
+          "value_kind": {
+            "type": "string",
+            "enum": [
+              "blank",
+              "string",
+              "number",
+              "boolean",
+              "error",
+              "date",
+              "formula"
+            ]
+          },
+          "raw_value": {},
+          "cached_value": {},
+          "formula_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "style_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            }
+          },
+          "source_address": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "calculation_model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "recalculated",
+        "calculation_mode",
+        "formulas"
+      ],
+      "properties": {
+        "recalculated": {
+          "const": false
+        },
+        "calculation_mode": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "formulas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "formula_id",
+              "cell_id",
+              "source",
+              "kind",
+              "dependency_refs"
+            ],
+            "properties": {
+              "formula_id": {
+                "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+              },
+              "cell_id": {
+                "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+              },
+              "source": {
+                "type": "string"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "normal",
+                  "shared",
+                  "array",
+                  "data_table"
+                ]
+              },
+              "dependency_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "volatile": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

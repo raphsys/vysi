@@ -1,0 +1,47 @@
+{
+  "calculation_model": {
+    "calculation_mode": "auto",
+    "formulas": [],
+    "recalculated": false
+  },
+  "cells": [
+    {
+      "address": "A1",
+      "cached_value": 1,
+      "cell_id": "cell_example001",
+      "formula_id": null,
+      "raw_value": 1,
+      "source_address": "xl/worksheets/sheet1.xml#/worksheet/sheetData/row[1]/c[1]",
+      "style_refs": [],
+      "value_kind": "number",
+      "worksheet_id": "worksheet_example001"
+    }
+  ],
+  "document_id": "document_sheet_example001",
+  "header": {
+    "content_hash": "4f567a0d3e2f38ce34b5ceb17349507d001a3a4643413e53c61a5422633bf5b3",
+    "contract_id": "profile_spreadsheet_wnzkbgic5qt2rroh4uulcaujks",
+    "created_at": "2026-06-20T07:10:14.038797Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.4.0",
+    "revision": 1,
+    "schema_id": "document_source.profile_spreadsheet",
+    "schema_version": "2.2.0",
+    "status": "ok",
+    "supersedes": null
+  },
+  "profile_kind": "spreadsheet",
+  "profile_version": "2.0.0",
+  "worksheets": [
+    {
+      "name": "Sheet1",
+      "ordinal": 0,
+      "print_areas": [],
+      "source_address": "xl/worksheets/sheet1.xml",
+      "used_range": "A1",
+      "visibility": "visible",
+      "worksheet_id": "worksheet_example001"
+    }
+  ]
+}

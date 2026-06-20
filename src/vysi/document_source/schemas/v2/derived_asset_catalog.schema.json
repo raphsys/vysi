@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/derived_asset_catalog.schema.json",
+  "title": "DerivedAssetCatalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "document_id",
+    "assets"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "asset_id",
+          "asset_kind",
+          "producer",
+          "input_refs",
+          "stored_ref",
+          "determinism"
+        ],
+        "properties": {
+          "asset_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "asset_kind": {
+            "type": "string"
+          },
+          "producer": {
+            "type": "string"
+          },
+          "input_refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "stored_ref": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/reference"
+          },
+          "determinism": {
+            "type": "string",
+            "enum": [
+              "deterministic",
+              "environment_bound",
+              "nondeterministic"
+            ]
+          },
+          "properties": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/propertyBag"
+          }
+        }
+      }
+    }
+  }
+}

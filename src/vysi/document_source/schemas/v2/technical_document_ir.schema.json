@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/technical_document_ir.schema.json",
+  "title": "TechnicalDocumentIR",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "document_id",
+    "root_unit_ids",
+    "units"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "root_unit_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+      }
+    },
+    "units": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "unit_id",
+          "kind",
+          "parent_id",
+          "ordinal",
+          "origin",
+          "source_native_ids",
+          "protected"
+        ],
+        "properties": {
+          "unit_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "parent_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ordinal": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "origin": {
+            "type": "string",
+            "enum": [
+              "native_projection",
+              "synthetic"
+            ]
+          },
+          "source_native_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            }
+          },
+          "text": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "protected": {
+            "type": "boolean"
+          },
+          "style_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            }
+          },
+          "resource_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            }
+          },
+          "technical_properties": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/propertyBag"
+          }
+        }
+      }
+    }
+  }
+}

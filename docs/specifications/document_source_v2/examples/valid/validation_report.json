@@ -1,0 +1,27 @@
+{
+  "header": {
+    "schema_id": "document_source.validation_report",
+    "schema_version": "2.0.0",
+    "contract_id": "validation_contract_example001",
+    "content_hash": "703204dcae827fdc70c92311fb6e47d08021789412ffb4fb9dd9ae2e0c73ff98",
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "created_at": "2026-06-19T20:00:00Z",
+    "status": "ok",
+    "revision": 1,
+    "supersedes": null,
+    "extensions": {}
+  },
+  "run_id": "run_example001",
+  "package_status": "review",
+  "checks": [
+    {
+      "check_id": "check_schema_example001",
+      "kind": "schema",
+      "status": "pass",
+      "message": "schémas valides",
+      "evidence_refs": []
+    }
+  ],
+  "error_refs": []
+}

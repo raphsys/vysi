@@ -1,0 +1,17 @@
+{
+  "header": {
+    "schema_id": "document_source.native_annotation_catalog",
+    "schema_version": "2.0.0",
+    "contract_id": "annotation_contract_example001",
+    "content_hash": "9b997bae72802bdecce5000a0e49807704462b47f41d255bf70ebe6a26d73bba",
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "created_at": "2026-06-19T20:00:00Z",
+    "status": "ok",
+    "revision": 1,
+    "supersedes": null,
+    "extensions": {}
+  },
+  "document_id": "document_example001",
+  "annotations": []
+}

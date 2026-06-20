@@ -1,0 +1,57 @@
+{
+  "header": {
+    "schema_id": "document_source.package_manifest",
+    "schema_version": "2.0.0",
+    "contract_id": "package_contract_example001",
+    "content_hash": "5e7aabf53706e01b98bc0a4b0505296f9b0f2796754accf323d971b857099201",
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "created_at": "2026-06-19T20:00:00Z",
+    "status": "review",
+    "revision": 1,
+    "supersedes": null,
+    "extensions": {}
+  },
+  "package_id": "package_example001",
+  "run_id": "run_example001",
+  "request_ref": {
+    "path": "request/normalized_request.json",
+    "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "schema_id": "document_source.normalized_source_request",
+    "schema_version": "2.0.0",
+    "contract_id": "normalized_request_example001"
+  },
+  "document_envelope_refs": [
+    {
+      "path": "documents/document_example001/document_envelope.json",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "schema_id": "document_source.document_envelope",
+      "schema_version": "2.0.0",
+      "contract_id": "envelope_contract_example001"
+    }
+  ],
+  "validation_report_ref": {
+    "path": "reports/validation_report.json",
+    "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "schema_id": "document_source.validation_report",
+    "schema_version": "2.0.0",
+    "contract_id": "validation_contract_example001"
+  },
+  "error_catalog_ref": {
+    "path": "errors/error_catalog.json",
+    "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "schema_id": "document_source.error_catalog",
+    "schema_version": "2.0.0",
+    "contract_id": "errors_contract_example001"
+  },
+  "files": [
+    {
+      "path": "request/normalized_request.json",
+      "size_bytes": 100,
+      "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "role": "contract"
+    }
+  ],
+  "committed": true,
+  "commit_marker": "COMMITTED"
+}

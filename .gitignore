@@ -1,0 +1,16 @@
+.vysi/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+runtime/results/*
+!runtime/results/.gitkeep
+runtime/tmp/*
+!runtime/tmp/.gitkeep
+runtime/audit/*
+!runtime/audit/.gitkeep
+
+# Contract validation caches
+.contract-validation/

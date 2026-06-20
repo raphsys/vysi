@@ -1,0 +1,33 @@
+{
+  "bom": null,
+  "control_findings": [],
+  "document_id": "document_text_example001",
+  "encoding": "utf-8",
+  "encoding_confidence": 1.0,
+  "header": {
+    "content_hash": "bae05c5146103236504d66420880b71905a9b0ee0dffdaaf97d3ead84b8e41a8",
+    "contract_id": "profile_plain_text_kjlqdn6czq7tnhagn47ehflsar",
+    "created_at": "2026-06-20T07:10:14.037295Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.4.0",
+    "revision": 1,
+    "schema_id": "document_source.profile_plain_text",
+    "schema_version": "2.2.0",
+    "status": "ok",
+    "supersedes": null
+  },
+  "lines": [
+    {
+      "byte_end": 5,
+      "byte_start": 0,
+      "ordinal": 0,
+      "text": "hello",
+      "unit_id": "line_example001"
+    }
+  ],
+  "newline_style": "lf",
+  "profile_kind": "plain_text",
+  "profile_version": "2.0.0",
+  "unicode_normalization": "source_preserved"
+}

@@ -1,0 +1,211 @@
+{
+  "valid": [
+    {
+      "file": "source_ingestion_request.json",
+      "schema": "source_ingestion_request"
+    },
+    {
+      "file": "normalized_source_request.json",
+      "schema": "normalized_source_request"
+    },
+    {
+      "file": "run_manifest.json",
+      "schema": "run_manifest"
+    },
+    {
+      "file": "acquired_source_bundle.json",
+      "schema": "acquired_source_bundle"
+    },
+    {
+      "file": "format_probe_report.json",
+      "schema": "format_probe_report"
+    },
+    {
+      "file": "security_clearance.json",
+      "schema": "security_clearance"
+    },
+    {
+      "file": "source_identity_manifest.json",
+      "schema": "source_identity_manifest"
+    },
+    {
+      "file": "container_part_catalog.json",
+      "schema": "container_part_catalog"
+    },
+    {
+      "file": "native_document.json",
+      "schema": "native_document"
+    },
+    {
+      "file": "native_style_catalog.json",
+      "schema": "native_style_catalog"
+    },
+    {
+      "file": "native_relationship_catalog.json",
+      "schema": "native_relationship_catalog"
+    },
+    {
+      "file": "native_resource_catalog.json",
+      "schema": "native_resource_catalog"
+    },
+    {
+      "file": "technical_document_ir.json",
+      "schema": "technical_document_ir"
+    },
+    {
+      "file": "rendered_view_catalog.json",
+      "schema": "rendered_view_catalog"
+    },
+    {
+      "file": "representation_mapping_catalog.json",
+      "schema": "representation_mapping_catalog"
+    },
+    {
+      "file": "feature_coverage_report.json",
+      "schema": "feature_coverage_report"
+    },
+    {
+      "file": "preservation_report.json",
+      "schema": "preservation_report"
+    },
+    {
+      "file": "error_catalog.json",
+      "schema": "error_catalog"
+    },
+    {
+      "file": "checkpoint_manifest.json",
+      "schema": "checkpoint_manifest"
+    },
+    {
+      "file": "reader_attempt_catalog.json",
+      "schema": "reader_attempt_catalog"
+    },
+    {
+      "file": "validation_report.json",
+      "schema": "validation_report"
+    },
+    {
+      "file": "document_envelope.json",
+      "schema": "document_envelope"
+    },
+    {
+      "file": "package_manifest.json",
+      "schema": "package_manifest"
+    },
+    {
+      "file": "profile_plain_text.json",
+      "schema": "profile_plain_text"
+    },
+    {
+      "file": "profile_wordprocessing.json",
+      "schema": "profile_wordprocessing"
+    },
+    {
+      "file": "profile_spreadsheet.json",
+      "schema": "profile_spreadsheet"
+    },
+    {
+      "file": "profile_presentation.json",
+      "schema": "profile_presentation"
+    },
+    {
+      "file": "profile_fixed_layout.json",
+      "schema": "profile_fixed_layout"
+    },
+    {
+      "file": "profile_raster.json",
+      "schema": "profile_raster"
+    },
+    {
+      "file": "profile_legacy_ole.json",
+      "schema": "profile_legacy_ole"
+    },
+    {
+      "file": "policy_set.json",
+      "schema": "policy_set"
+    },
+    {
+      "file": "capability_manifest.json",
+      "schema": "capability_manifest"
+    },
+    {
+      "file": "access_clearance.json",
+      "schema": "access_clearance"
+    },
+    {
+      "file": "native_decode_result.json",
+      "schema": "native_decode_result"
+    },
+    {
+      "file": "native_metadata_catalog.json",
+      "schema": "native_metadata_catalog"
+    },
+    {
+      "file": "native_annotation_catalog.json",
+      "schema": "native_annotation_catalog"
+    },
+    {
+      "file": "geometry_catalog.json",
+      "schema": "geometry_catalog"
+    },
+    {
+      "file": "derived_asset_catalog.json",
+      "schema": "derived_asset_catalog"
+    },
+    {
+      "file": "conversion_report_catalog.json",
+      "schema": "conversion_report_catalog"
+    },
+    {
+      "file": "audit_event_catalog.json",
+      "schema": "audit_event_catalog"
+    }
+  ],
+  "invalid": [
+    {
+      "file": "request_no_sources.json",
+      "schema": "source_ingestion_request",
+      "reason": "sources minItems=1"
+    },
+    {
+      "file": "request_network_invalid.json",
+      "schema": "source_ingestion_request",
+      "reason": "network enum"
+    },
+    {
+      "file": "slot_available_without_ref.json",
+      "schema": "document_envelope",
+      "reason": "available requires ref"
+    },
+    {
+      "file": "package_absolute_path.json",
+      "schema": "package_manifest",
+      "reason": "portable path forbids absolute"
+    },
+    {
+      "file": "profile_text_negative_offset.json",
+      "schema": "profile_plain_text",
+      "reason": "negative offset"
+    },
+    {
+      "file": "security_exec_true.json",
+      "schema": "security_clearance",
+      "reason": "active execution must be false"
+    },
+    {
+      "file": "mapping_confidence_over_1.json",
+      "schema": "representation_mapping_catalog",
+      "reason": "confidence <=1"
+    },
+    {
+      "file": "native_unknown_property.json",
+      "schema": "native_document",
+      "reason": "additionalProperties false"
+    },
+    {
+      "file": "slot_unsupported_without_reason.json",
+      "schema": "document_envelope",
+      "reason": "unsupported requires reason code"
+    }
+  ]
+}

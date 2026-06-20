@@ -1,0 +1,18 @@
+{
+  "header": {
+    "schema_id": "document_source.geometry_catalog",
+    "schema_version": "2.0.0",
+    "contract_id": "geometry_contract_example001",
+    "content_hash": "26c6d56c313f686b66b9c13936f99e6f83a87eb26e491afd573efda6049bf767",
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "created_at": "2026-06-19T20:00:00Z",
+    "status": "ok",
+    "revision": 1,
+    "supersedes": null,
+    "extensions": {}
+  },
+  "document_id": "document_example001",
+  "coordinate_spaces": [],
+  "geometries": []
+}

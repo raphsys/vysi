@@ -1,0 +1,29 @@
+{
+  "header": {
+    "schema_id": "document_source.audit_event_catalog",
+    "schema_version": "2.0.0",
+    "contract_id": "audit_contract_example001",
+    "content_hash": "d365e97f7af4c63d92875e50d0bc3beef128d64a3269c01d91dd8d96cdcd9766",
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "created_at": "2026-06-19T20:00:00Z",
+    "status": "ok",
+    "revision": 1,
+    "supersedes": null,
+    "extensions": {}
+  },
+  "run_id": "run_example001",
+  "events": [
+    {
+      "event_id": "event_example001",
+      "timestamp": "2026-06-19T20:00:00Z",
+      "stage": "DS00",
+      "event_type": "run_started",
+      "actor": "vysi.document_source",
+      "subject_refs": [
+        "run_example001"
+      ],
+      "details": []
+    }
+  ]
+}

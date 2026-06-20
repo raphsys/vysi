@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/format_probe_report.schema.json",
+  "title": "FormatProbeReport",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "bundle_ref",
+    "documents"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "bundle_ref": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/reference"
+    },
+    "documents": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "document_id",
+          "artifact_ids",
+          "format_name",
+          "family",
+          "layout_nature",
+          "container_kind",
+          "media_type",
+          "confidence",
+          "evidence",
+          "reader_candidates"
+        ],
+        "properties": {
+          "document_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "artifact_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            }
+          },
+          "format_name": {
+            "type": "string"
+          },
+          "family": {
+            "type": "string",
+            "enum": [
+              "plain_text",
+              "wordprocessing",
+              "spreadsheet",
+              "presentation",
+              "fixed_layout",
+              "raster",
+              "legacy_ole",
+              "unknown"
+            ]
+          },
+          "layout_nature": {
+            "type": "string",
+            "enum": [
+              "linear",
+              "flow",
+              "grid",
+              "slide",
+              "fixed",
+              "raster",
+              "unknown"
+            ]
+          },
+          "container_kind": {
+            "type": "string"
+          },
+          "media_type": {
+            "type": "string"
+          },
+          "format_version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "extension_mismatch": {
+            "type": "boolean"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "reader_candidates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "reader_id",
+                "score",
+                "capability_state"
+              ],
+              "properties": {
+                "reader_id": {
+                  "type": "string"
+                },
+                "score": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "capability_state": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partial",
+                    "unsupported"
+                  ]
+                },
+                "limitations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

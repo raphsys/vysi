@@ -1,0 +1,32 @@
+{
+  "header": {
+    "schema_id": "document_source.acquired_source_bundle",
+    "schema_version": "2.1.0",
+    "contract_id": "bundle_contract_example001",
+    "content_hash": "4294819c4cbd03037a15a05ab0edf705c6fabe7fe4c51941f10c3ae0f6403a73",
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "created_at": "2026-06-19T20:00:00Z",
+    "status": "ok",
+    "revision": 1,
+    "supersedes": null,
+    "extensions": {}
+  },
+  "bundle_id": "bundle_example001",
+  "artifacts": [
+    {
+      "artifact_id": "artifact_example001",
+      "role": "primary",
+      "ordinal": 0,
+      "original_name": "sample.docx",
+      "stored_path": "native/artifacts/sample.docx",
+      "size_bytes": 1234,
+      "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "acquisition_kind": "local_file",
+      "source_uri_redacted": "file:input/sample.docx",
+      "declared_media_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "source_locator_id": "locator_example001"
+    }
+  ],
+  "total_size_bytes": 1234
+}

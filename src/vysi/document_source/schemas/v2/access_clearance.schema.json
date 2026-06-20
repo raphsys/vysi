@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/access_clearance.schema.json",
+  "title": "AccessClearance",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "document_id",
+    "access_state",
+    "encryption",
+    "restrictions",
+    "signature_state"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "access_state": {
+      "type": "string",
+      "enum": [
+        "clear",
+        "clear_restricted",
+        "secret_required",
+        "blocked",
+        "failed"
+      ]
+    },
+    "encryption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "encrypted",
+        "scheme",
+        "secret_used"
+      ],
+      "properties": {
+        "encrypted": {
+          "type": "boolean"
+        },
+        "scheme": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "secret_used": {
+          "type": "boolean"
+        },
+        "secret_ref_audited": {
+          "type": "boolean"
+        }
+      }
+    },
+    "restrictions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "signature_state": {
+      "type": "string",
+      "enum": [
+        "absent",
+        "present_unverified",
+        "valid",
+        "invalid",
+        "unknown"
+      ]
+    },
+    "error_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+      }
+    }
+  }
+}

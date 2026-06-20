@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/validation_report.schema.json",
+  "title": "ValidationReport",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "run_id",
+    "package_status",
+    "checks",
+    "error_refs"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "run_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "package_status": {
+      "type": "string",
+      "enum": [
+        "ok",
+        "review",
+        "rejected",
+        "error",
+        "cancelled"
+      ]
+    },
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "check_id",
+          "kind",
+          "status",
+          "message",
+          "evidence_refs"
+        ],
+        "properties": {
+          "check_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "schema",
+              "hash",
+              "reference",
+              "invariant",
+              "security",
+              "format",
+              "policy",
+              "storage"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pass",
+              "warning",
+              "fail",
+              "not_applicable"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "error_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+      }
+    }
+  }
+}

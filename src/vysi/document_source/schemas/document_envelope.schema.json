@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": true,
+  "$id": "https://raphsys.local/schemas/document_source/document_envelope.schema.json",
+  "title": "document_envelope",
+  "required": [
+    "header",
+    "document_id",
+    "source_artifact_ref",
+    "native_document_ref",
+    "common_ir_ref",
+    "feature_coverage_ref",
+    "preservation_report_ref",
+    "security_report_ref",
+    "final_status"
+  ],
+  "properties": {
+    "header": {
+      "type": "object",
+      "required": [
+        "schema_id",
+        "schema_version",
+        "contract_id",
+        "created_at",
+        "producer"
+      ]
+    },
+    "document_id": {
+      "type": "string"
+    },
+    "source_artifact_ref": {
+      "type": "object"
+    },
+    "native_document_ref": {
+      "type": "object"
+    },
+    "common_ir_ref": {
+      "type": "object"
+    },
+    "feature_coverage_ref": {
+      "type": "object"
+    },
+    "preservation_report_ref": {
+      "type": "object"
+    },
+    "security_report_ref": {
+      "type": "object"
+    },
+    "final_status": {
+      "type": "string"
+    }
+  }
+}

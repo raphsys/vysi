@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/profile_wordprocessing.schema.json",
+  "title": "WordprocessingNativeProfile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "profile_kind",
+    "profile_version",
+    "document_id",
+    "sections",
+    "blocks",
+    "layers",
+    "revisions",
+    "annotations"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "profile_kind": {
+      "const": "wordprocessing"
+    },
+    "profile_version": {
+      "const": "2.0.0"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "section_id",
+          "ordinal",
+          "source_address"
+        ],
+        "properties": {
+          "section_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "ordinal": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "source_address": {
+            "type": "string"
+          },
+          "properties": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/propertyBag"
+          }
+        }
+      }
+    },
+    "blocks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "unit_id",
+          "kind",
+          "parent_id",
+          "ordinal",
+          "source_address"
+        ],
+        "properties": {
+          "unit_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "paragraph",
+              "run",
+              "table",
+              "row",
+              "cell",
+              "header",
+              "footer",
+              "footnote",
+              "endnote",
+              "field",
+              "content_control",
+              "bookmark"
+            ]
+          },
+          "parent_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "ordinal": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "source_address": {
+            "type": "string"
+          },
+          "text": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "style_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            }
+          },
+          "resource_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            }
+          },
+          "properties": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/propertyBag"
+          }
+        }
+      }
+    },
+    "layers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "content",
+          "revision",
+          "annotation",
+          "field"
+        ]
+      }
+    },
+    "intrinsic_pagination": {
+      "const": false
+    },
+    "revisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "revision_id",
+          "kind",
+          "target_unit_ids",
+          "author",
+          "date",
+          "source_address"
+        ],
+        "properties": {
+          "revision_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "insert",
+              "delete",
+              "move_from",
+              "move_to",
+              "format_change"
+            ]
+          },
+          "target_unit_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            }
+          },
+          "author": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "source_address": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "annotations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "annotation_id",
+          "kind",
+          "target_unit_ids",
+          "text",
+          "source_address"
+        ],
+        "properties": {
+          "annotation_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "comment",
+              "bookmark",
+              "permission_range"
+            ]
+          },
+          "target_unit_ids": {
+            "type": "array",
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            }
+          },
+          "text": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_address": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

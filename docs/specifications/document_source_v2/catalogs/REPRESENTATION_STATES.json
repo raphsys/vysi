@@ -1,0 +1,12 @@
+{
+  "schema": "vysi.document_source.representation_states.v2",
+  "states": [
+    "available",
+    "partial",
+    "not_requested",
+    "not_applicable",
+    "unsupported",
+    "blocked_by_policy",
+    "failed"
+  ]
+}

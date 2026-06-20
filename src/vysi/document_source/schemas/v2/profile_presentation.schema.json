@@ -1,0 +1,259 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/profile_presentation.schema.json",
+  "title": "PresentationNativeProfile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "profile_kind",
+    "profile_version",
+    "document_id",
+    "slides",
+    "shapes",
+    "timing_model"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "profile_kind": {
+      "const": "presentation"
+    },
+    "profile_version": {
+      "const": "2.0.0"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "slides": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "slide_id",
+          "ordinal",
+          "source_address",
+          "layout_ref",
+          "master_ref"
+        ],
+        "properties": {
+          "slide_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "ordinal": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "source_address": {
+            "type": "string"
+          },
+          "layout_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "master_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "notes_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "hidden": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "shapes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "shape_id",
+          "slide_id",
+          "kind",
+          "ordinal",
+          "source_address"
+        ],
+        "properties": {
+          "shape_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "slide_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "source_address": {
+            "type": "string"
+          },
+          "parent_shape_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "text": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "style_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            }
+          },
+          "resource_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            }
+          }
+        }
+      }
+    },
+    "timing_model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "animations",
+        "transitions"
+      ],
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "available",
+            "partial",
+            "unsupported",
+            "not_present"
+          ]
+        },
+        "animations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "event_id",
+              "kind",
+              "target_shape_ids",
+              "trigger",
+              "ordinal",
+              "source_address"
+            ],
+            "properties": {
+              "event_id": {
+                "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "target_shape_ids": {
+                "type": "array",
+                "items": {
+                  "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+                }
+              },
+              "trigger": {
+                "type": "string",
+                "enum": [
+                  "on_click",
+                  "with_previous",
+                  "after_previous",
+                  "automatic",
+                  "unknown"
+                ]
+              },
+              "ordinal": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "duration_ms": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "source_address": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "transitions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "event_id",
+              "kind",
+              "target_shape_ids",
+              "trigger",
+              "ordinal",
+              "source_address"
+            ],
+            "properties": {
+              "event_id": {
+                "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+              },
+              "kind": {
+                "type": "string"
+              },
+              "target_shape_ids": {
+                "type": "array",
+                "items": {
+                  "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+                }
+              },
+              "trigger": {
+                "type": "string",
+                "enum": [
+                  "on_click",
+                  "with_previous",
+                  "after_previous",
+                  "automatic",
+                  "unknown"
+                ]
+              },
+              "ordinal": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "duration_ms": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "minimum": 0
+              },
+              "source_address": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

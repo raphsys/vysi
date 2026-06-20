@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/conversion_report_catalog.schema.json",
+  "title": "ConversionReportCatalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "document_id",
+    "conversions"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "conversions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "conversion_id",
+          "source_format",
+          "target_format",
+          "converter",
+          "converter_version",
+          "input_refs",
+          "output_refs",
+          "loss_refs",
+          "warnings"
+        ],
+        "properties": {
+          "conversion_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "source_format": {
+            "type": "string"
+          },
+          "target_format": {
+            "type": "string"
+          },
+          "converter": {
+            "type": "string"
+          },
+          "converter_version": {
+            "type": "string"
+          },
+          "input_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "output_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "loss_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "environment_hash": {
+            "anyOf": [
+              {
+                "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/sha256"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "profile_kind": "plain_text",
+  "profile_version": "2.0.0",
+  "document_id": "document_text_example001",
+  "encoding": "utf-8",
+  "encoding_confidence": 1.0,
+  "bom": null,
+  "newline_style": "lf",
+  "unicode_normalization": "source_preserved",
+  "lines": [
+    {
+      "unit_id": "line_example001",
+      "ordinal": 0,
+      "byte_start": -1,
+      "byte_end": 5,
+      "text": "hello"
+    }
+  ],
+  "control_findings": []
+}

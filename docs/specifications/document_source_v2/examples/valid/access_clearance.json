@@ -1,0 +1,28 @@
+{
+  "header": {
+    "schema_id": "document_source.access_clearance",
+    "schema_version": "2.0.0",
+    "contract_id": "access_contract_example001",
+    "content_hash": "d1ed46a0b6423658c1310c3ce7636ccb3181141f36f420eb9c0559ea6c6d25ad",
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "created_at": "2026-06-19T20:00:00Z",
+    "status": "ok",
+    "revision": 1,
+    "supersedes": null,
+    "extensions": {}
+  },
+  "document_id": "document_example001",
+  "access_state": "clear_restricted",
+  "encryption": {
+    "encrypted": false,
+    "scheme": null,
+    "secret_used": false,
+    "secret_ref_audited": false
+  },
+  "restrictions": [
+    "active_content_inert"
+  ],
+  "signature_state": "absent",
+  "error_refs": []
+}

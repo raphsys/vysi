@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/rendered_view_catalog.schema.json",
+  "title": "RenderedViewCatalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "document_id",
+    "views",
+    "surfaces"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "views": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "view_id",
+          "view_kind",
+          "renderer",
+          "renderer_version",
+          "environment_hash",
+          "determinism",
+          "warnings"
+        ],
+        "properties": {
+          "view_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "view_kind": {
+            "type": "string"
+          },
+          "renderer": {
+            "type": "string"
+          },
+          "renderer_version": {
+            "type": "string"
+          },
+          "environment_hash": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/sha256"
+          },
+          "determinism": {
+            "type": "string",
+            "enum": [
+              "deterministic",
+              "environment_bound",
+              "nondeterministic"
+            ]
+          },
+          "locale": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "timezone": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "font_substitutions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "surfaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "surface_id",
+          "view_id",
+          "surface_kind",
+          "ordinal",
+          "coordinate_space_id",
+          "native_unit_refs",
+          "asset_refs"
+        ],
+        "properties": {
+          "surface_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "view_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "surface_kind": {
+            "type": "string",
+            "enum": [
+              "fixed_page",
+              "flow_page",
+              "worksheet_print_page",
+              "slide",
+              "raster_canvas",
+              "text_preview",
+              "thumbnail"
+            ]
+          },
+          "ordinal": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "width": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "height": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "coordinate_space_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "native_unit_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            }
+          },
+          "asset_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/reference"
+            }
+          }
+        }
+      }
+    }
+  }
+}

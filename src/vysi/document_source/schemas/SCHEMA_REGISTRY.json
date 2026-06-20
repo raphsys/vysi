@@ -1,0 +1,69 @@
+{
+  "schemas": [
+    {
+      "schema_id": "document_source.source_artifact",
+      "version": "1.0.0",
+      "path": "source_artifact.schema.json"
+    },
+    {
+      "schema_id": "document_source.capability_manifest",
+      "version": "1.0.0",
+      "path": "capability_manifest.schema.json"
+    },
+    {
+      "schema_id": "document_source.format_descriptor",
+      "version": "1.0.0",
+      "path": "format_descriptor.schema.json"
+    },
+    {
+      "schema_id": "document_source.container_part_catalog",
+      "version": "1.0.0",
+      "path": "container_part_catalog.schema.json"
+    },
+    {
+      "schema_id": "document_source.native_document",
+      "version": "1.0.0",
+      "path": "native_document.schema.json"
+    },
+    {
+      "schema_id": "document_source.common_document_ir",
+      "version": "1.0.0",
+      "path": "common_document_ir.schema.json"
+    },
+    {
+      "schema_id": "document_source.rendered_view_catalog",
+      "version": "1.0.0",
+      "path": "rendered_view_catalog.schema.json"
+    },
+    {
+      "schema_id": "document_source.representation_mapping_catalog",
+      "version": "1.0.0",
+      "path": "representation_mapping_catalog.schema.json"
+    },
+    {
+      "schema_id": "document_source.native_resource_catalog",
+      "version": "1.0.0",
+      "path": "native_resource_catalog.schema.json"
+    },
+    {
+      "schema_id": "document_source.feature_coverage_report",
+      "version": "1.0.0",
+      "path": "feature_coverage_report.schema.json"
+    },
+    {
+      "schema_id": "document_source.preservation_report",
+      "version": "1.0.0",
+      "path": "preservation_report.schema.json"
+    },
+    {
+      "schema_id": "document_source.security_report",
+      "version": "1.0.0",
+      "path": "security_report.schema.json"
+    },
+    {
+      "schema_id": "document_source.document_envelope",
+      "version": "2.0.0",
+      "path": "document_envelope.schema.json"
+    }
+  ]
+}

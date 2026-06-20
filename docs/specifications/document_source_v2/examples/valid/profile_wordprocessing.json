@@ -1,0 +1,45 @@
+{
+  "annotations": [],
+  "blocks": [
+    {
+      "kind": "paragraph",
+      "ordinal": 0,
+      "parent_id": "section_example001",
+      "properties": [],
+      "resource_refs": [],
+      "source_address": "word/document.xml#/document/body/p[1]",
+      "style_refs": [],
+      "text": "Bonjour",
+      "unit_id": "paragraph_example001"
+    }
+  ],
+  "document_id": "document_example001",
+  "header": {
+    "content_hash": "a4c8a2cdc7d860ade11b6877af72dc18e1a065a05e415bbd62e7df325e5247f4",
+    "contract_id": "profile_wordprocessi_wrjqsyg7h46mxnxclx52ly6wih",
+    "created_at": "2026-06-20T07:10:14.038202Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.4.0",
+    "revision": 1,
+    "schema_id": "document_source.profile_wordprocessing",
+    "schema_version": "2.2.0",
+    "status": "ok",
+    "supersedes": null
+  },
+  "intrinsic_pagination": false,
+  "layers": [
+    "content"
+  ],
+  "profile_kind": "wordprocessing",
+  "profile_version": "2.0.0",
+  "revisions": [],
+  "sections": [
+    {
+      "ordinal": 0,
+      "properties": [],
+      "section_id": "section_example001",
+      "source_address": "word/document.xml#/document/body/sectPr[1]"
+    }
+  ]
+}

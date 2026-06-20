@@ -1,0 +1,540 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/common.schema.json",
+  "title": "Vysi DOCUMENT_SOURCE v2 common definitions",
+  "type": "object",
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{1,31}_[A-Za-z0-9._:-]{4,160}$"
+    },
+    "portablePath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "running",
+        "ok",
+        "review",
+        "rejected",
+        "error",
+        "cancelled",
+        "partial",
+        "invalidated",
+        "superseded"
+      ]
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "info",
+        "warning",
+        "error",
+        "critical"
+      ]
+    },
+    "header": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_id",
+        "schema_version",
+        "contract_id",
+        "content_hash",
+        "producer",
+        "producer_version",
+        "created_at",
+        "status",
+        "revision"
+      ],
+      "properties": {
+        "schema_id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "schema_version": {
+          "type": "string",
+          "pattern": "^2\\.[0-9]+\\.[0-9]+$"
+        },
+        "contract_id": {
+          "$ref": "#/$defs/id"
+        },
+        "content_hash": {
+          "$ref": "#/$defs/sha256"
+        },
+        "producer": {
+          "type": "string",
+          "minLength": 3
+        },
+        "producer_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "status": {
+          "$ref": "#/$defs/status"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "supersedes": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "extensions": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^[a-z][a-z0-9_.-]+$"
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    "reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "sha256",
+        "schema_id",
+        "schema_version",
+        "contract_id"
+      ],
+      "properties": {
+        "path": {
+          "$ref": "#/$defs/portablePath"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "schema_id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contract_id": {
+          "$ref": "#/$defs/id"
+        }
+      }
+    },
+    "representationSlot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "reason_codes"
+      ],
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "available",
+            "partial",
+            "not_requested",
+            "not_applicable",
+            "unsupported",
+            "blocked_by_policy",
+            "failed"
+          ]
+        },
+        "ref": {
+          "$ref": "#/$defs/reference"
+        },
+        "reason_codes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^DS-[A-Z]{2,4}-[0-9]{3}$"
+          }
+        },
+        "details": {
+          "type": "string",
+          "maxLength": 4000
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "available",
+                  "partial"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "ref"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "not_requested",
+                  "not_applicable",
+                  "unsupported",
+                  "blocked_by_policy",
+                  "failed"
+                ]
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "ref"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "partial",
+                  "unsupported",
+                  "blocked_by_policy",
+                  "failed"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reason_codes": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "sourceLocator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "locator_id",
+        "kind",
+        "role"
+      ],
+      "properties": {
+        "locator_id": {
+          "$ref": "#/$defs/id"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "local_file",
+            "stream",
+            "bytes",
+            "url",
+            "directory",
+            "archive",
+            "ordered_collection",
+            "embedded"
+          ]
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "primary",
+            "supporting",
+            "page_member",
+            "attachment",
+            "embedded"
+          ]
+        },
+        "uri": {
+          "type": "string"
+        },
+        "display_name": {
+          "type": "string",
+          "maxLength": 1024
+        },
+        "declared_media_type": {
+          "type": "string"
+        },
+        "secret_ref": {
+          "type": "string",
+          "minLength": 3
+        },
+        "expected_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "local_file",
+                  "url",
+                  "directory",
+                  "archive"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "uri"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "url"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "uri": {
+                "pattern": "^https?://"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "limitObservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "limit_name",
+        "scope",
+        "configured_value",
+        "observed_value",
+        "action"
+      ],
+      "properties": {
+        "limit_name": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "configured_value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "observed_value": {
+          "type": "number",
+          "minimum": 0
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "allow",
+            "warn",
+            "truncate",
+            "block",
+            "cancel"
+          ]
+        }
+      }
+    },
+    "errorRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "error_id",
+        "code",
+        "stage",
+        "scope",
+        "severity",
+        "message",
+        "retryable",
+        "recoverable",
+        "action_taken",
+        "evidence_refs"
+      ],
+      "properties": {
+        "error_id": {
+          "$ref": "#/$defs/id"
+        },
+        "code": {
+          "type": "string",
+          "pattern": "^DS-[A-Z]{2,4}-[0-9]{3}$"
+        },
+        "stage": {
+          "type": "string",
+          "pattern": "^DS(?:0[0-9]|1[0-5])$"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "severity": {
+          "$ref": "#/$defs/severity"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "technical_details": {
+          "type": "string",
+          "maxLength": 16000
+        },
+        "cause_error_id": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "retryable": {
+          "type": "boolean"
+        },
+        "recoverable": {
+          "type": "boolean"
+        },
+        "action_taken": {
+          "type": "string"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "typedValue": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "typedProperty": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "value_type",
+        "value",
+        "source"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.:-]{1,200}$"
+        },
+        "value_type": {
+          "type": "string",
+          "enum": [
+            "string",
+            "number",
+            "integer",
+            "boolean",
+            "null",
+            "array"
+          ]
+        },
+        "value": {
+          "$ref": "#/$defs/typedValue"
+        },
+        "unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source": {
+          "type": "string",
+          "enum": [
+            "native_direct",
+            "native_inherited",
+            "resolved",
+            "derived",
+            "default"
+          ]
+        },
+        "source_address": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "propertyBag": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/typedProperty"
+      }
+    }
+  }
+}

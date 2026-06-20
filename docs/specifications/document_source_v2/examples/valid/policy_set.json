@@ -1,0 +1,53 @@
+{
+  "header": {
+    "schema_id": "document_source.policy_set",
+    "schema_version": "2.0.0",
+    "contract_id": "policy_contract_example001",
+    "content_hash": "d18a3f72456015703d6b7e71a1ec3c952da2e0800c4c2a979cf5f76f27dd482a",
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "created_at": "2026-06-19T20:00:00Z",
+    "status": "ok",
+    "revision": 1,
+    "supersedes": null,
+    "extensions": {}
+  },
+  "ingestion_policy": {
+    "allow_partial": true,
+    "resume": true,
+    "cache": "read_write"
+  },
+  "security_policy": {
+    "network": "deny",
+    "active_content": "inventory_only",
+    "embedded_documents": "extract_inert",
+    "external_references": "inventory_only",
+    "encryption": "allow_with_secret_ref"
+  },
+  "resource_budget": {
+    "max_source_bytes": 2147483648,
+    "max_decompressed_bytes": 8589934592,
+    "max_parts": 100000,
+    "max_memory_bytes": 2147483648,
+    "max_cpu_seconds": 300,
+    "max_wall_seconds": 1800,
+    "max_temp_bytes": 8589934592,
+    "max_child_depth": 4
+  },
+  "rendering_policy": {
+    "mode": "on_demand",
+    "profiles": [
+      "technical-preview"
+    ]
+  },
+  "preservation_policy": {
+    "preserve_original": true,
+    "preserve_unknown_parts": true,
+    "extract_native_resources": true
+  },
+  "strictness_policy": {
+    "mode": "balanced",
+    "major_loss_action": "review",
+    "minor_loss_action": "allow"
+  }
+}

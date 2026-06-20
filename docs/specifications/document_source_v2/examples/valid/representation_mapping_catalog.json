@@ -1,0 +1,40 @@
+{
+  "header": {
+    "schema_id": "document_source.representation_mapping_catalog",
+    "schema_version": "2.4.0",
+    "contract_id": "mapping_contract_example001",
+    "content_hash": "11a73420aba728b576235c47b7f63a522d28cc6c6406f52d81a29217d1fd316e",
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "created_at": "2026-06-19T20:00:00Z",
+    "status": "ok",
+    "revision": 1,
+    "supersedes": null,
+    "extensions": {}
+  },
+  "document_id": "document_example001",
+  "mappings": [
+    {
+      "mapping_id": "mapping_example001",
+      "source_layer": "native",
+      "source_ids": [
+        "paragraph_example001"
+      ],
+      "target_layer": "technical_ir",
+      "target_ids": [
+        "ir_text_example001"
+      ],
+      "relation": "projects_to",
+      "exactness": "exact",
+      "confidence": 1.0,
+      "method": "address_and_content",
+      "evidence_refs": [
+        "word/document.xml#/document/body/p[1]"
+      ],
+      "cardinality": "one_to_one",
+      "producer": "vysi.document_source.ds12",
+      "producer_version": "0.6.0",
+      "determinism": "deterministic"
+    }
+  ]
+}

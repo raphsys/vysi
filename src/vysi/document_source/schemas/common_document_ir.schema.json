@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": true,
+  "$id": "https://raphsys.local/schemas/document_source/common_document_ir.schema.json",
+  "title": "common_document_ir",
+  "required": [
+    "header",
+    "root_ids",
+    "units"
+  ],
+  "properties": {
+    "header": {
+      "type": "object",
+      "required": [
+        "schema_id",
+        "schema_version",
+        "contract_id",
+        "created_at",
+        "producer"
+      ]
+    },
+    "root_ids": {
+      "type": "array"
+    },
+    "units": {
+      "type": "array"
+    }
+  }
+}

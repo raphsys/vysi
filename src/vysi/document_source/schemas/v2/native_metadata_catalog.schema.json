@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/native_metadata_catalog.schema.json",
+  "title": "NativeMetadataCatalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "document_id",
+    "items"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "metadata_id",
+          "namespace",
+          "name",
+          "value",
+          "source_address",
+          "sensitivity"
+        ],
+        "properties": {
+          "metadata_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "namespace": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/typedValue"
+          },
+          "source_address": {
+            "type": "string"
+          },
+          "sensitivity": {
+            "type": "string",
+            "enum": [
+              "public",
+              "personal",
+              "secret_candidate",
+              "unknown"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

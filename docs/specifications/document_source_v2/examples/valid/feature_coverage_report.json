@@ -1,0 +1,47 @@
+{
+  "header": {
+    "schema_id": "document_source.feature_coverage_report",
+    "schema_version": "2.4.0",
+    "contract_id": "coverage_contract_example001",
+    "content_hash": "888d98dd568eda1eaa60e93af5e49bbf92c7fb2aca2c1ed91ccb2afbec112333",
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "created_at": "2026-06-19T20:00:00Z",
+    "status": "review",
+    "revision": 1,
+    "supersedes": null,
+    "extensions": {}
+  },
+  "document_id": "document_example001",
+  "items": [
+    {
+      "feature": "paragraphs",
+      "encountered": 1,
+      "extracted": 1,
+      "preserved": 1,
+      "projected": 1,
+      "rendered": 0,
+      "opaque": 0,
+      "approximated": 0,
+      "unsupported": 0,
+      "omitted": 0,
+      "severity": "info",
+      "evidence_refs": [
+        "paragraph_example001"
+      ],
+      "axis": "structural",
+      "basis": "Paragraphe natif extrait, préservé et projeté vers TechnicalDocumentIR"
+    }
+  ],
+  "axis_scores": {
+    "binary": 1.0,
+    "structural": 0.9,
+    "technical_semantic": 1.0,
+    "style": 0.5,
+    "relationship": 1.0,
+    "visual": null,
+    "interactive": null,
+    "computational": null,
+    "roundtrip": 0.7
+  }
+}

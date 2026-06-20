@@ -1,0 +1,66 @@
+{
+  "header": {
+    "schema_id": "document_source.native_decode_result",
+    "schema_version": "2.0.0",
+    "contract_id": "decode_contract_example001",
+    "content_hash": "86d16081d9d2b44ac3fe51897466a2386f3c90e6f3eab212747ad8b72efbd5c3",
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "created_at": "2026-06-19T20:00:00Z",
+    "status": "review",
+    "revision": 1,
+    "supersedes": null,
+    "extensions": {}
+  },
+  "document_id": "document_example001",
+  "reader_attempt_ref": {
+    "path": "logs/reader_attempts.json",
+    "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "schema_id": "document_source.reader_attempt_catalog",
+    "schema_version": "2.0.0",
+    "contract_id": "reader_contract_example001"
+  },
+  "selected_reader": {
+    "reader_id": "vysi.ooxml.docx",
+    "reader_version": "0.2.0",
+    "sandbox_profile": "document-source-default"
+  },
+  "profile_kind": "wordprocessing",
+  "decode_state": "partial",
+  "output_slots": {
+    "native": {
+      "state": "partial",
+      "ref": {
+        "path": "contracts/native_document.json",
+        "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+        "schema_id": "document_source.native_document",
+        "schema_version": "2.0.0",
+        "contract_id": "native_contract_example001"
+      },
+      "reason_codes": [
+        "DS-DEC-002"
+      ]
+    },
+    "styles": {
+      "state": "not_applicable",
+      "reason_codes": []
+    },
+    "relationships": {
+      "state": "not_applicable",
+      "reason_codes": []
+    },
+    "metadata": {
+      "state": "not_applicable",
+      "reason_codes": []
+    },
+    "annotations": {
+      "state": "not_applicable",
+      "reason_codes": []
+    },
+    "resources": {
+      "state": "not_applicable",
+      "reason_codes": []
+    }
+  },
+  "error_refs": []
+}

@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/document_envelope.schema.json",
+  "title": "DocumentEnvelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "document_id",
+    "binary",
+    "container",
+    "native",
+    "styles",
+    "relationships",
+    "resources",
+    "technical_ir",
+    "rendered",
+    "mappings",
+    "coverage",
+    "preservation",
+    "security",
+    "errors",
+    "final_status",
+    "metadata",
+    "annotations",
+    "geometry",
+    "assets",
+    "conversions"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "binary": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+    },
+    "container": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+    },
+    "native": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+    },
+    "styles": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+    },
+    "relationships": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+    },
+    "resources": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+    },
+    "technical_ir": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+    },
+    "rendered": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+    },
+    "mappings": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+    },
+    "coverage": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+    },
+    "preservation": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+    },
+    "security": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+    },
+    "errors": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+    },
+    "child_document_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+      }
+    },
+    "parent_document_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "final_status": {
+      "type": "string",
+      "enum": [
+        "ok",
+        "review",
+        "rejected",
+        "error",
+        "cancelled"
+      ]
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "metadata": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+    },
+    "annotations": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+    },
+    "geometry": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+    },
+    "assets": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+    },
+    "conversions": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/representationSlot"
+    }
+  }
+}

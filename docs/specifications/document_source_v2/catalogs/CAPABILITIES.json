@@ -1,0 +1,30 @@
+{
+  "schema": "vysi.document_source.capability_catalog.v2",
+  "capabilities": [
+    "container.parts",
+    "container.relationships",
+    "native.text",
+    "native.styles",
+    "native.relationships",
+    "native.resources",
+    "layout.fixed_pages",
+    "layout.flow",
+    "layout.grid",
+    "layout.slides",
+    "raster.frames",
+    "calculation.formulas",
+    "revision.tracked_changes",
+    "annotation.comments",
+    "presentation.timing",
+    "active.macros",
+    "active.javascript",
+    "embedded.documents",
+    "security.encryption",
+    "security.signatures",
+    "render.native",
+    "render.external",
+    "random_access",
+    "partial_selection",
+    "streaming_decode"
+  ]
+}

@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vysi"
+version = "0.6.1"
+description = "DS00-DS10 and DS12-DS13 implemented multi-representation document source pipeline"
+requires-python = ">=3.10,<3.14"
+dependencies = [
+  "jsonschema>=4.20,<5",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<10",
+  "ruff>=0.8,<1",
+  "mypy>=1.10,<2",
+  "types-jsonschema>=4.23,<5",
+]
+
+[project.scripts]
+vysi = "vysi.document_source.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+vysi = ["py.typed", "document_source/schemas/*.json", "document_source/schemas/v2/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+packages = ["vysi"]
