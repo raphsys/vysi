@@ -1,0 +1,33 @@
+{
+  "capabilities": [
+    "native.text",
+    "layout.flow"
+  ],
+  "document_id": "document_example001",
+  "header": {
+    "content_hash": "595c094698599f1dd011757afda464393bc81398e68a87a161ea6e13a8ed1554",
+    "contract_id": "native_contract_example001",
+    "created_at": "2026-06-19T20:00:00Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "revision": 1,
+    "schema_id": "document_source.native_document",
+    "schema_version": "2.0.0",
+    "status": "ok",
+    "supersedes": null
+  },
+  "opaque_parts": [],
+  "profile_kind": "wordprocessing",
+  "profile_ref": {
+    "contract_id": "profile_word_contract001",
+    "path": "native/models/wordprocessing.json",
+    "schema_id": "document_source.profile_wordprocessing",
+    "schema_version": "2.0.0",
+    "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  "profile_version": "2.0.0",
+  "root_unit_ids": [
+    "section_example001"
+  ]
+}

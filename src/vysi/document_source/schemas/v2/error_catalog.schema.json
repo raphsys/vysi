@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/error_catalog.schema.json",
+  "title": "ErrorCatalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "run_id",
+    "errors"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "run_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/errorRecord"
+      }
+    }
+  }
+}

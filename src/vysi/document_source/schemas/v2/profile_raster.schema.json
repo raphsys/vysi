@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/profile_raster.schema.json",
+  "title": "RasterNativeProfile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "profile_kind",
+    "profile_version",
+    "document_id",
+    "frames",
+    "document_surface_policy"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "profile_kind": {
+      "const": "raster"
+    },
+    "profile_version": {
+      "const": "2.0.0"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "frames": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "frame_id",
+          "ordinal",
+          "width_px",
+          "height_px",
+          "duration_ms",
+          "source_address"
+        ],
+        "properties": {
+          "frame_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "ordinal": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "width_px": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "height_px": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "duration_ms": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "source_address": {
+            "type": "string"
+          },
+          "orientation": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "icc_profile_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "document_surface_policy": {
+      "type": "string",
+      "enum": [
+        "single_surface",
+        "one_surface_per_frame",
+        "format_defined"
+      ]
+    },
+    "animated": {
+      "type": "boolean"
+    }
+  }
+}

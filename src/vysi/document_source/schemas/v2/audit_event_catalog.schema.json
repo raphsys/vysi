@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/audit_event_catalog.schema.json",
+  "title": "AuditEventCatalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "run_id",
+    "events"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "run_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "event_id",
+          "timestamp",
+          "stage",
+          "event_type",
+          "actor",
+          "subject_refs",
+          "details"
+        ],
+        "properties": {
+          "event_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "stage": {
+            "type": "string",
+            "pattern": "^DS(?:0[0-9]|1[0-5])$"
+          },
+          "event_type": {
+            "type": "string"
+          },
+          "actor": {
+            "type": "string"
+          },
+          "subject_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "details": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/propertyBag"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "capabilities": [
+    {
+      "capability": "native.text",
+      "evidence_refs": [
+        "word/document.xml"
+      ],
+      "limitations": [],
+      "state": "supported"
+    },
+    {
+      "capability": "revision.tracked_changes",
+      "evidence_refs": [],
+      "limitations": [
+        "advanced move revisions deferred"
+      ],
+      "state": "partial"
+    }
+  ],
+  "document_id": "document_example001",
+  "header": {
+    "content_hash": "0f08fce42cd440d31685c910fd3b7fe89a3f3aa70bebeee7e6077b71c6407bed",
+    "contract_id": "capability_contract_example001",
+    "created_at": "2026-06-19T20:00:00Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "revision": 1,
+    "schema_id": "document_source.capability_manifest",
+    "schema_version": "2.0.0",
+    "status": "review",
+    "supersedes": null
+  }
+}

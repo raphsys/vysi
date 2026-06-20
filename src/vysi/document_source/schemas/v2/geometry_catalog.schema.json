@@ -1,0 +1,173 @@
+{
+  "$id": "https://schemas.vysi.dev/document-source/v2/geometry_catalog.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "coordinate_spaces": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "axis_x": {
+            "type": "string"
+          },
+          "axis_y": {
+            "type": "string"
+          },
+          "coordinate_space_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "origin": {
+            "enum": [
+              "top_left",
+              "bottom_left",
+              "logical"
+            ],
+            "type": "string"
+          },
+          "owner_id": {
+            "type": "string"
+          },
+          "transform_to_parent": {
+            "items": {
+              "type": "number"
+            },
+            "maxItems": 6,
+            "minItems": 6,
+            "type": [
+              "array",
+              "null"
+            ]
+          },
+          "unit": {
+            "enum": [
+              "pt",
+              "px",
+              "emu",
+              "cell",
+              "character",
+              "normalized"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "coordinate_space_id",
+          "owner_id",
+          "unit",
+          "origin",
+          "axis_x",
+          "axis_y"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "geometries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "confidence": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "coordinate_space_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "geometry_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "geometry_kind": {
+            "enum": [
+              "bbox",
+              "polygon",
+              "range",
+              "cell_address",
+              "none"
+            ],
+            "type": "string"
+          },
+          "method": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "owner_id": {
+            "type": "string"
+          },
+          "source": {
+            "enum": [
+              "native",
+              "rendered",
+              "derived",
+              "inferred"
+            ],
+            "type": "string"
+          },
+          "values": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array"
+          },
+          "native_unit_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            },
+            "uniqueItems": true
+          },
+          "visibility": {
+            "type": "string",
+            "enum": [
+              "fully_visible",
+              "partially_clipped",
+              "not_visible",
+              "not_assessed"
+            ]
+          },
+          "clipped": {
+            "type": "boolean"
+          },
+          "serialized": {
+            "type": "boolean"
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "geometry_id",
+          "owner_id",
+          "coordinate_space_id",
+          "geometry_kind",
+          "values",
+          "source",
+          "confidence",
+          "method",
+          "native_unit_refs",
+          "visibility",
+          "clipped",
+          "serialized",
+          "role"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    }
+  },
+  "required": [
+    "header",
+    "document_id",
+    "coordinate_spaces",
+    "geometries"
+  ],
+  "title": "GeometryCatalog",
+  "type": "object"
+}

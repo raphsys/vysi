@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/package_manifest.schema.json",
+  "title": "PackageManifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "package_id",
+    "run_id",
+    "request_ref",
+    "document_envelope_refs",
+    "validation_report_ref",
+    "error_catalog_ref",
+    "files",
+    "committed",
+    "commit_marker"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "package_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "run_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "request_ref": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/reference"
+    },
+    "document_envelope_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/reference"
+      }
+    },
+    "validation_report_ref": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/reference"
+    },
+    "error_catalog_ref": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/reference"
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "size_bytes",
+          "sha256",
+          "role"
+        ],
+        "properties": {
+          "path": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/portablePath"
+          },
+          "size_bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sha256": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/sha256"
+          },
+          "role": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "committed": {
+      "const": true
+    },
+    "commit_marker": {
+      "type": "string",
+      "const": "COMMITTED"
+    }
+  }
+}

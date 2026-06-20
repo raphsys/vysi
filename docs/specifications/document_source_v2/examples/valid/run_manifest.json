@@ -1,0 +1,39 @@
+{
+  "cancellation_requested": false,
+  "finished_at": null,
+  "header": {
+    "content_hash": "dad3aa8ee439924a172c6c19ce53681207e4bcf51f669bd37ec2149f70a54f89",
+    "contract_id": "run_contract_example001",
+    "created_at": "2026-06-19T20:00:00Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "revision": 1,
+    "schema_id": "document_source.run_manifest",
+    "schema_version": "2.0.0",
+    "status": "running",
+    "supersedes": null
+  },
+  "nodes": [
+    {
+      "attempts": 1,
+      "input_hashes": [
+        "2222222222222222222222222222222222222222222222222222222222222222"
+      ],
+      "node_id": "node_ds00_example001",
+      "output_refs": [],
+      "stage": "DS00",
+      "state": "running"
+    }
+  ],
+  "request_ref": {
+    "contract_id": "normalized_request_example001",
+    "path": "request/normalized_request.json",
+    "schema_id": "document_source.normalized_source_request",
+    "schema_version": "2.0.0",
+    "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  "resume_from_run_id": null,
+  "run_id": "run_example001",
+  "started_at": "2026-06-19T20:00:00Z"
+}

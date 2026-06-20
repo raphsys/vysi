@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": true,
+  "$id": "https://raphsys.local/schemas/document_source/preservation_report.schema.json",
+  "title": "preservation_report",
+  "required": [
+    "header",
+    "issues",
+    "opaque_parts_preserved",
+    "roundtrip_risk"
+  ],
+  "properties": {
+    "header": {
+      "type": "object",
+      "required": [
+        "schema_id",
+        "schema_version",
+        "contract_id",
+        "created_at",
+        "producer"
+      ]
+    },
+    "issues": {
+      "type": "array"
+    },
+    "opaque_parts_preserved": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "roundtrip_risk": {
+      "type": "string"
+    }
+  }
+}

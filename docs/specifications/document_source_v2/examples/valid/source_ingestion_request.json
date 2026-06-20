@@ -1,0 +1,73 @@
+{
+  "correlation": {
+    "case": "example"
+  },
+  "header": {
+    "content_hash": "79e70670a35b142a8cab3af3142f8498484e81e9079e5e8c91723e6b967179c6",
+    "contract_id": "request_contract_example001",
+    "created_at": "2026-06-19T20:00:00Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "revision": 1,
+    "schema_id": "document_source.source_ingestion_request",
+    "schema_version": "2.0.0",
+    "status": "ok",
+    "supersedes": null
+  },
+  "ingestion_policy": {
+    "allow_partial": true,
+    "cache": "read_write",
+    "resume": true
+  },
+  "preservation_policy": {
+    "extract_native_resources": true,
+    "preserve_original": true,
+    "preserve_unknown_parts": true
+  },
+  "rendering_policy": {
+    "mode": "on_demand",
+    "profiles": [
+      "technical_preview"
+    ]
+  },
+  "request_id": "request_example001",
+  "resource_budget": {
+    "max_child_depth": 4,
+    "max_cpu_seconds": 300,
+    "max_decompressed_bytes": 8589934592,
+    "max_memory_bytes": 2147483648,
+    "max_parts": 100000,
+    "max_source_bytes": 2147483648,
+    "max_temp_bytes": 8589934592,
+    "max_wall_seconds": 1800
+  },
+  "security_policy": {
+    "active_content": "inventory_only",
+    "embedded_documents": "extract_inert",
+    "encryption": "allow_with_secret_ref",
+    "external_references": "inventory_only",
+    "network": "deny"
+  },
+  "selection": {
+    "mode": "all",
+    "selectors": []
+  },
+  "sources": [
+    {
+      "declared_media_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "display_name": "sample.docx",
+      "expected_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "kind": "local_file",
+      "locator_id": "locator_example001",
+      "order": 0,
+      "role": "primary",
+      "uri": "file:input/sample.docx"
+    }
+  ],
+  "strictness_policy": {
+    "major_loss_action": "review",
+    "minor_loss_action": "allow",
+    "mode": "balanced"
+  }
+}

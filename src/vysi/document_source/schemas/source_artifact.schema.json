@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": true,
+  "$id": "https://raphsys.local/schemas/document_source/source_artifact.schema.json",
+  "title": "source_artifact",
+  "required": [
+    "header",
+    "artifact_id",
+    "sha256",
+    "size_bytes"
+  ],
+  "properties": {
+    "header": {
+      "type": "object",
+      "required": [
+        "schema_id",
+        "schema_version",
+        "contract_id",
+        "created_at",
+        "producer"
+      ]
+    },
+    "artifact_id": {
+      "type": "string"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "size_bytes": {
+      "type": "integer",
+      "minimum": 0
+    }
+  }
+}

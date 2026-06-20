@@ -1,0 +1,312 @@
+{
+  "$id": "https://schemas.vysi.dev/document-source/v2/source_ingestion_request.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "correlation": {
+      "additionalProperties": {
+        "maxLength": 1024,
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "ingestion_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "allow_partial": {
+          "type": "boolean"
+        },
+        "cache": {
+          "enum": [
+            "disabled",
+            "read",
+            "read_write"
+          ],
+          "type": "string"
+        },
+        "resume": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "allow_partial",
+        "resume",
+        "cache"
+      ],
+      "type": "object"
+    },
+    "preservation_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "extract_native_resources": {
+          "type": "boolean"
+        },
+        "preserve_original": {
+          "const": true
+        },
+        "preserve_unknown_parts": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "preserve_original",
+        "preserve_unknown_parts",
+        "extract_native_resources"
+      ],
+      "type": "object"
+    },
+    "rendering_policy": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "const": "none"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "profiles": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "mode": {
+                "enum": [
+                  "on_demand",
+                  "required"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "profiles": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "none",
+            "on_demand",
+            "required"
+          ],
+          "type": "string"
+        },
+        "profiles": {
+          "items": {
+            "enum": [
+              "source_reference",
+              "technical_preview",
+              "native_passthrough"
+            ],
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "mode",
+        "profiles"
+      ],
+      "type": "object"
+    },
+    "request_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "resource_budget": {
+      "additionalProperties": false,
+      "properties": {
+        "max_child_depth": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "max_cpu_seconds": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "max_decompressed_bytes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "max_memory_bytes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "max_parts": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "max_source_bytes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "max_temp_bytes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "max_wall_seconds": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "max_source_bytes",
+        "max_decompressed_bytes",
+        "max_parts",
+        "max_memory_bytes",
+        "max_cpu_seconds",
+        "max_wall_seconds",
+        "max_temp_bytes",
+        "max_child_depth"
+      ],
+      "type": "object"
+    },
+    "security_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "active_content": {
+          "enum": [
+            "deny",
+            "inventory_only"
+          ],
+          "type": "string"
+        },
+        "embedded_documents": {
+          "enum": [
+            "deny",
+            "inventory_only",
+            "extract_inert"
+          ],
+          "type": "string"
+        },
+        "encryption": {
+          "enum": [
+            "reject",
+            "allow_with_secret_ref"
+          ],
+          "type": "string"
+        },
+        "external_references": {
+          "enum": [
+            "deny",
+            "inventory_only"
+          ],
+          "type": "string"
+        },
+        "network": {
+          "enum": [
+            "deny",
+            "allowlist"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "network",
+        "active_content",
+        "embedded_documents",
+        "external_references",
+        "encryption"
+      ],
+      "type": "object"
+    },
+    "selection": {
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "enum": [
+            "all",
+            "native_units",
+            "pages",
+            "slides",
+            "worksheets",
+            "cell_ranges",
+            "line_ranges"
+          ],
+          "type": "string"
+        },
+        "selectors": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "mode"
+      ],
+      "type": "object"
+    },
+    "sources": {
+      "items": {
+        "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/sourceLocator"
+      },
+      "maxItems": 10000,
+      "minItems": 1,
+      "type": "array"
+    },
+    "strictness_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "major_loss_action": {
+          "enum": [
+            "reject",
+            "review"
+          ],
+          "type": "string"
+        },
+        "minor_loss_action": {
+          "enum": [
+            "review",
+            "allow"
+          ],
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "strict",
+            "balanced",
+            "permissive"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "mode",
+        "major_loss_action",
+        "minor_loss_action"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "header",
+    "request_id",
+    "sources",
+    "selection",
+    "ingestion_policy",
+    "security_policy",
+    "resource_budget",
+    "rendering_policy",
+    "preservation_policy",
+    "strictness_policy"
+  ],
+  "title": "SourceIngestionRequest",
+  "type": "object"
+}

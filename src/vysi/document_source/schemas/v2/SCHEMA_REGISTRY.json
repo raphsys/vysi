@@ -1,0 +1,170 @@
+{
+  "schema_version": "vysi.document_source.schema_registry.v2",
+  "base_uri": "https://schemas.vysi.dev/document-source/v2/",
+  "schemas": {
+    "source_ingestion_request": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/source_ingestion_request.schema.json",
+      "path": "source_ingestion_request.schema.json"
+    },
+    "normalized_source_request": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/normalized_source_request.schema.json",
+      "path": "normalized_source_request.schema.json"
+    },
+    "run_manifest": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/run_manifest.schema.json",
+      "path": "run_manifest.schema.json"
+    },
+    "acquired_source_bundle": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/acquired_source_bundle.schema.json",
+      "path": "acquired_source_bundle.schema.json"
+    },
+    "format_probe_report": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/format_probe_report.schema.json",
+      "path": "format_probe_report.schema.json"
+    },
+    "security_clearance": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/security_clearance.schema.json",
+      "path": "security_clearance.schema.json"
+    },
+    "source_identity_manifest": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/source_identity_manifest.schema.json",
+      "path": "source_identity_manifest.schema.json"
+    },
+    "container_part_catalog": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/container_part_catalog.schema.json",
+      "path": "container_part_catalog.schema.json"
+    },
+    "native_document": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/native_document.schema.json",
+      "path": "native_document.schema.json"
+    },
+    "native_style_catalog": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/native_style_catalog.schema.json",
+      "path": "native_style_catalog.schema.json"
+    },
+    "native_relationship_catalog": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/native_relationship_catalog.schema.json",
+      "path": "native_relationship_catalog.schema.json"
+    },
+    "native_resource_catalog": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/native_resource_catalog.schema.json",
+      "path": "native_resource_catalog.schema.json"
+    },
+    "technical_document_ir": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/technical_document_ir.schema.json",
+      "path": "technical_document_ir.schema.json"
+    },
+    "rendered_view_catalog": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/rendered_view_catalog.schema.json",
+      "path": "rendered_view_catalog.schema.json"
+    },
+    "representation_mapping_catalog": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/representation_mapping_catalog.schema.json",
+      "path": "representation_mapping_catalog.schema.json"
+    },
+    "feature_coverage_report": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/feature_coverage_report.schema.json",
+      "path": "feature_coverage_report.schema.json"
+    },
+    "preservation_report": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/preservation_report.schema.json",
+      "path": "preservation_report.schema.json"
+    },
+    "error_catalog": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/error_catalog.schema.json",
+      "path": "error_catalog.schema.json"
+    },
+    "checkpoint_manifest": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/checkpoint_manifest.schema.json",
+      "path": "checkpoint_manifest.schema.json"
+    },
+    "reader_attempt_catalog": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/reader_attempt_catalog.schema.json",
+      "path": "reader_attempt_catalog.schema.json"
+    },
+    "validation_report": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/validation_report.schema.json",
+      "path": "validation_report.schema.json"
+    },
+    "document_envelope": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/document_envelope.schema.json",
+      "path": "document_envelope.schema.json"
+    },
+    "package_manifest": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/package_manifest.schema.json",
+      "path": "package_manifest.schema.json"
+    },
+    "profile_plain_text": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/profile_plain_text.schema.json",
+      "path": "profile_plain_text.schema.json"
+    },
+    "profile_wordprocessing": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/profile_wordprocessing.schema.json",
+      "path": "profile_wordprocessing.schema.json"
+    },
+    "profile_spreadsheet": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/profile_spreadsheet.schema.json",
+      "path": "profile_spreadsheet.schema.json"
+    },
+    "profile_presentation": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/profile_presentation.schema.json",
+      "path": "profile_presentation.schema.json"
+    },
+    "profile_fixed_layout": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/profile_fixed_layout.schema.json",
+      "path": "profile_fixed_layout.schema.json"
+    },
+    "profile_raster": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/profile_raster.schema.json",
+      "path": "profile_raster.schema.json"
+    },
+    "profile_legacy_ole": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/profile_legacy_ole.schema.json",
+      "path": "profile_legacy_ole.schema.json"
+    },
+    "common": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/common.schema.json",
+      "path": "common.schema.json"
+    },
+    "policy_set": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/policy_set.schema.json",
+      "path": "policy_set.schema.json"
+    },
+    "capability_manifest": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/capability_manifest.schema.json",
+      "path": "capability_manifest.schema.json"
+    },
+    "access_clearance": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/access_clearance.schema.json",
+      "path": "access_clearance.schema.json"
+    },
+    "native_decode_result": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/native_decode_result.schema.json",
+      "path": "native_decode_result.schema.json"
+    },
+    "native_metadata_catalog": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/native_metadata_catalog.schema.json",
+      "path": "native_metadata_catalog.schema.json"
+    },
+    "native_annotation_catalog": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/native_annotation_catalog.schema.json",
+      "path": "native_annotation_catalog.schema.json"
+    },
+    "geometry_catalog": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/geometry_catalog.schema.json",
+      "path": "geometry_catalog.schema.json"
+    },
+    "derived_asset_catalog": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/derived_asset_catalog.schema.json",
+      "path": "derived_asset_catalog.schema.json"
+    },
+    "conversion_report_catalog": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/conversion_report_catalog.schema.json",
+      "path": "conversion_report_catalog.schema.json"
+    },
+    "audit_event_catalog": {
+      "$id": "https://schemas.vysi.dev/document-source/v2/audit_event_catalog.schema.json",
+      "path": "audit_event_catalog.schema.json"
+    }
+  }
+}

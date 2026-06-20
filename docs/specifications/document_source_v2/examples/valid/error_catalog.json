@@ -1,0 +1,17 @@
+{
+  "errors": [],
+  "header": {
+    "content_hash": "f9b826f8ec4a5aefa37d4fc700e4e409167c739f2ff7da0c16759a2cdcfd0f1d",
+    "contract_id": "errors_contract_example001",
+    "created_at": "2026-06-19T20:00:00Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "revision": 1,
+    "schema_id": "document_source.error_catalog",
+    "schema_version": "2.0.0",
+    "status": "ok",
+    "supersedes": null
+  },
+  "run_id": "run_example001"
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/native_relationship_catalog.schema.json",
+  "title": "NativeRelationshipCatalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "document_id",
+    "relationships"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relationship_id",
+          "source_id",
+          "target_id",
+          "relation_type",
+          "external",
+          "source_address"
+        ],
+        "properties": {
+          "relationship_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "source_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "target_id": {
+            "type": "string"
+          },
+          "relation_type": {
+            "type": "string"
+          },
+          "external": {
+            "type": "boolean"
+          },
+          "source_address": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "bundle_ref": {
+    "contract_id": "bundle_contract_example001",
+    "path": "manifests/acquired_source_bundle.json",
+    "schema_id": "document_source.acquired_source_bundle",
+    "schema_version": "2.0.0",
+    "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  "documents": [
+    {
+      "artifact_ids": [
+        "artifact_example001"
+      ],
+      "confidence": 1.0,
+      "container_kind": "ooxml_zip",
+      "document_id": "document_example001",
+      "evidence": [
+        "ZIP signature",
+        "[Content_Types].xml",
+        "word/document.xml"
+      ],
+      "extension_mismatch": false,
+      "family": "wordprocessing",
+      "format_name": "docx",
+      "format_version": "ECMA-376",
+      "layout_nature": "flow",
+      "media_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "reader_candidates": [
+        {
+          "capability_state": "partial",
+          "limitations": [
+            "advanced fields deferred"
+          ],
+          "reader_id": "vysi.ooxml.docx",
+          "score": 1.0
+        }
+      ]
+    }
+  ],
+  "header": {
+    "content_hash": "192eaa0ed90fffe3efd45964e4506bf4d4f5b06851b05f49b298a3758c029e00",
+    "contract_id": "probe_contract_example001",
+    "created_at": "2026-06-19T20:00:00Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "revision": 1,
+    "schema_id": "document_source.format_probe_report",
+    "schema_version": "2.0.0",
+    "status": "ok",
+    "supersedes": null
+  }
+}

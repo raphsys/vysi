@@ -1,0 +1,566 @@
+{
+  "$defs": {
+    "artifactReference": {
+      "additionalProperties": false,
+      "properties": {
+        "media_type": {
+          "minLength": 3,
+          "type": "string"
+        },
+        "path": {
+          "$ref": "#/$defs/portablePath"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "size_bytes": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "media_type",
+        "size_bytes"
+      ],
+      "type": "object"
+    },
+    "errorRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "action_taken": {
+          "type": "string"
+        },
+        "cause_error_id": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "code": {
+          "pattern": "^DS-[A-Z]{2,4}-[0-9]{3}$",
+          "type": "string"
+        },
+        "error_id": {
+          "$ref": "#/$defs/id"
+        },
+        "evidence_refs": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "message": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "recoverable": {
+          "type": "boolean"
+        },
+        "retryable": {
+          "type": "boolean"
+        },
+        "scope": {
+          "type": "string"
+        },
+        "severity": {
+          "$ref": "#/$defs/severity"
+        },
+        "stage": {
+          "pattern": "^DS(?:0[0-9]|1[0-5])$",
+          "type": "string"
+        },
+        "technical_details": {
+          "maxLength": 16000,
+          "type": "string"
+        }
+      },
+      "required": [
+        "error_id",
+        "code",
+        "stage",
+        "scope",
+        "severity",
+        "message",
+        "retryable",
+        "recoverable",
+        "action_taken",
+        "evidence_refs"
+      ],
+      "type": "object"
+    },
+    "header": {
+      "additionalProperties": false,
+      "properties": {
+        "content_hash": {
+          "$ref": "#/$defs/sha256"
+        },
+        "contract_id": {
+          "$ref": "#/$defs/id"
+        },
+        "created_at": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "extensions": {
+          "additionalProperties": true,
+          "propertyNames": {
+            "pattern": "^[a-z][a-z0-9_.-]+$"
+          },
+          "type": "object"
+        },
+        "producer": {
+          "minLength": 3,
+          "type": "string"
+        },
+        "producer_version": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "revision": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "schema_id": {
+          "minLength": 3,
+          "type": "string"
+        },
+        "schema_version": {
+          "pattern": "^2\\.[0-9]+\\.[0-9]+$",
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/status"
+        },
+        "supersedes": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "schema_id",
+        "schema_version",
+        "contract_id",
+        "content_hash",
+        "producer",
+        "producer_version",
+        "created_at",
+        "status",
+        "revision"
+      ],
+      "type": "object"
+    },
+    "id": {
+      "pattern": "^[a-z][a-z0-9_]{1,31}_[A-Za-z0-9._:-]{4,160}$",
+      "type": "string"
+    },
+    "limitObservation": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "enum": [
+            "allow",
+            "warn",
+            "truncate",
+            "block",
+            "cancel"
+          ],
+          "type": "string"
+        },
+        "configured_value": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "limit_name": {
+          "type": "string"
+        },
+        "observed_value": {
+          "minimum": 0,
+          "type": "number"
+        },
+        "scope": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "limit_name",
+        "scope",
+        "configured_value",
+        "observed_value",
+        "action"
+      ],
+      "type": "object"
+    },
+    "portablePath": {
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\).+$",
+      "type": "string"
+    },
+    "propertyBag": {
+      "items": {
+        "$ref": "#/$defs/typedProperty"
+      },
+      "type": "array"
+    },
+    "reference": {
+      "additionalProperties": false,
+      "properties": {
+        "contract_id": {
+          "$ref": "#/$defs/id"
+        },
+        "path": {
+          "$ref": "#/$defs/portablePath"
+        },
+        "schema_id": {
+          "minLength": 3,
+          "type": "string"
+        },
+        "schema_version": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        }
+      },
+      "required": [
+        "path",
+        "sha256",
+        "schema_id",
+        "schema_version",
+        "contract_id"
+      ],
+      "type": "object"
+    },
+    "representationSlot": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "available",
+                  "partial"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "ref"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "not_requested",
+                  "not_applicable",
+                  "unsupported",
+                  "blocked_by_policy",
+                  "failed"
+                ]
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "required": [
+                "ref"
+              ]
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "partial",
+                  "unsupported",
+                  "blocked_by_policy",
+                  "failed"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "reason_codes": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "details": {
+          "maxLength": 4000,
+          "type": "string"
+        },
+        "reason_codes": {
+          "items": {
+            "pattern": "^DS-[A-Z]{2,4}-[0-9]{3}$",
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "ref": {
+          "$ref": "#/$defs/reference"
+        },
+        "state": {
+          "enum": [
+            "available",
+            "partial",
+            "not_requested",
+            "not_applicable",
+            "unsupported",
+            "blocked_by_policy",
+            "failed"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "state",
+        "reason_codes"
+      ],
+      "type": "object"
+    },
+    "severity": {
+      "enum": [
+        "info",
+        "warning",
+        "error",
+        "critical"
+      ],
+      "type": "string"
+    },
+    "sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "sourceLocator": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "local_file",
+                  "url",
+                  "directory",
+                  "archive"
+                ]
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "uri"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "url"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "uri": {
+                "pattern": "^https?://"
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "declared_media_type": {
+          "type": "string"
+        },
+        "display_name": {
+          "maxLength": 1024,
+          "type": "string"
+        },
+        "expected_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "kind": {
+          "enum": [
+            "local_file",
+            "stream",
+            "bytes",
+            "url",
+            "directory",
+            "archive",
+            "ordered_collection",
+            "embedded"
+          ],
+          "type": "string"
+        },
+        "locator_id": {
+          "$ref": "#/$defs/id"
+        },
+        "order": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "role": {
+          "enum": [
+            "primary",
+            "supporting",
+            "page_member",
+            "attachment",
+            "embedded"
+          ],
+          "type": "string"
+        },
+        "secret_ref": {
+          "minLength": 3,
+          "type": "string"
+        },
+        "uri": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "locator_id",
+        "kind",
+        "role"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "enum": [
+        "pending",
+        "running",
+        "ok",
+        "review",
+        "rejected",
+        "error",
+        "cancelled",
+        "partial",
+        "invalidated",
+        "superseded"
+      ],
+      "type": "string"
+    },
+    "typedProperty": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "pattern": "^[a-z][a-z0-9_.:-]{1,200}$",
+          "type": "string"
+        },
+        "source": {
+          "enum": [
+            "native_direct",
+            "native_inherited",
+            "resolved",
+            "derived",
+            "default"
+          ],
+          "type": "string"
+        },
+        "source_address": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "value": {
+          "$ref": "#/$defs/typedValue"
+        },
+        "value_type": {
+          "enum": [
+            "string",
+            "number",
+            "integer",
+            "boolean",
+            "null",
+            "array"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "value_type",
+        "value",
+        "source"
+      ],
+      "type": "object"
+    },
+    "typedValue": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "integer"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "items": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "type": "array"
+        }
+      ]
+    }
+  },
+  "$id": "https://schemas.vysi.dev/document-source/v2/common.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Vysi DOCUMENT_SOURCE v2 common definitions",
+  "type": "object"
+}

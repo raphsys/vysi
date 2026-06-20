@@ -1,0 +1,42 @@
+{
+  "container_kind": "ooxml_zip",
+  "document_id": "document_example001",
+  "header": {
+    "content_hash": "913a74f21da0d91c2953426c6646e853c171980605740dd846926d3129af10bd",
+    "contract_id": "container_contract_example001",
+    "created_at": "2026-06-19T20:00:00Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "revision": 1,
+    "schema_id": "document_source.container_part_catalog",
+    "schema_version": "2.0.0",
+    "status": "ok",
+    "supersedes": null
+  },
+  "parts": [
+    {
+      "compressed_size": 500,
+      "compression": "deflate",
+      "media_type": "application/xml",
+      "opaque": false,
+      "parent_part_id": null,
+      "part_id": "part_documentxml001",
+      "part_kind": "xml",
+      "path": "word/document.xml",
+      "read_state": "preserved",
+      "security_flags": [],
+      "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "size_bytes": 1200,
+      "stored_ref": {
+        "contract_id": "part_documentxml001",
+        "path": "native/parts/word/document.xml",
+        "schema_id": "document_source.binary_part",
+        "schema_version": "2.0.0",
+        "sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+      }
+    }
+  ],
+  "relationships": [],
+  "warnings": []
+}

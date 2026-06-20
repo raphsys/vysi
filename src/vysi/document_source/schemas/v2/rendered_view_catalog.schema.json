@@ -1,0 +1,367 @@
+{
+  "$id": "https://schemas.vysi.dev/document-source/v2/rendered_view_catalog.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "surfaces": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "asset_refs": {
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "coordinate_space_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "dpi": {
+            "exclusiveMinimum": 0,
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "fidelity": {
+            "enum": [
+              "exact",
+              "approximate",
+              "not_assessed"
+            ],
+            "type": "string"
+          },
+          "height": {
+            "minimum": 0,
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "media_type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "native_unit_refs": {
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            },
+            "type": "array"
+          },
+          "ordinal": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "rotation": {
+            "enum": [
+              0,
+              90,
+              180,
+              270
+            ],
+            "type": "integer"
+          },
+          "status": {
+            "enum": [
+              "available",
+              "partial",
+              "unsupported",
+              "failed"
+            ],
+            "type": "string"
+          },
+          "surface_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "surface_kind": {
+            "enum": [
+              "fixed_page",
+              "flow_page",
+              "worksheet_print_page",
+              "slide",
+              "raster_canvas",
+              "text_preview",
+              "thumbnail"
+            ],
+            "type": "string"
+          },
+          "unit": {
+            "enum": [
+              "pt",
+              "px",
+              "emu",
+              "cell",
+              "character",
+              "normalized"
+            ],
+            "type": "string"
+          },
+          "view_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "width": {
+            "minimum": 0,
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "serialized_native_unit_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            },
+            "uniqueItems": true
+          },
+          "clipped_native_unit_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            },
+            "uniqueItems": true
+          },
+          "omitted_native_unit_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            },
+            "uniqueItems": true
+          },
+          "visibility_basis": {
+            "type": "string",
+            "enum": [
+              "layout_observed",
+              "binary_passthrough",
+              "native_dimensions_only",
+              "not_assessed"
+            ]
+          }
+        },
+        "required": [
+          "surface_id",
+          "view_id",
+          "surface_kind",
+          "ordinal",
+          "width",
+          "height",
+          "unit",
+          "rotation",
+          "dpi",
+          "status",
+          "fidelity",
+          "media_type",
+          "coordinate_space_id",
+          "native_unit_refs",
+          "asset_refs",
+          "serialized_native_unit_refs",
+          "clipped_native_unit_refs",
+          "omitted_native_unit_refs",
+          "visibility_basis"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "views": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "determinism": {
+            "enum": [
+              "deterministic",
+              "environment_bound",
+              "nondeterministic"
+            ],
+            "type": "string"
+          },
+          "environment": {
+            "additionalProperties": false,
+            "properties": {
+              "field_update": {
+                "type": "string"
+              },
+              "formula_recalculation": {
+                "type": "string"
+              },
+              "locale": {
+                "type": "string"
+              },
+              "machine": {
+                "type": "string"
+              },
+              "macros": {
+                "type": "string"
+              },
+              "network": {
+                "type": "string"
+              },
+              "platform": {
+                "type": "string"
+              },
+              "profile": {
+                "type": "string"
+              },
+              "python": {
+                "type": "string"
+              },
+              "renderer_family": {
+                "type": "string"
+              },
+              "timezone": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "renderer_family",
+              "profile",
+              "python",
+              "platform",
+              "machine",
+              "locale",
+              "timezone",
+              "network",
+              "macros",
+              "field_update",
+              "formula_recalculation"
+            ],
+            "type": "object"
+          },
+          "environment_hash": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/sha256"
+          },
+          "font_substitutions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "locale": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "renderer": {
+            "type": "string"
+          },
+          "renderer_version": {
+            "type": "string"
+          },
+          "requested_profile": {
+            "enum": [
+              "source_reference",
+              "technical_preview",
+              "native_passthrough"
+            ],
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "available",
+              "partial",
+              "unsupported",
+              "failed"
+            ],
+            "type": "string"
+          },
+          "timezone": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "view_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "view_kind": {
+            "enum": [
+              "technical_preview",
+              "native_passthrough",
+              "unsupported"
+            ],
+            "type": "string"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "measurement_basis": {
+            "type": "string",
+            "enum": [
+              "technical_preview_visibility",
+              "binary_passthrough",
+              "unsupported"
+            ]
+          },
+          "visibility_summary": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "serialized_refs",
+              "visible_refs",
+              "clipped_refs",
+              "omitted_refs",
+              "visual_fidelity_assessed"
+            ],
+            "properties": {
+              "serialized_refs": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "visible_refs": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "clipped_refs": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "omitted_refs": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "visual_fidelity_assessed": {
+                "type": "boolean"
+              }
+            }
+          }
+        },
+        "required": [
+          "view_id",
+          "view_kind",
+          "requested_profile",
+          "renderer",
+          "renderer_version",
+          "environment_hash",
+          "environment",
+          "determinism",
+          "status",
+          "warnings",
+          "measurement_basis",
+          "visibility_summary"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "header",
+    "document_id",
+    "views",
+    "surfaces"
+  ],
+  "title": "RenderedViewCatalog",
+  "type": "object"
+}

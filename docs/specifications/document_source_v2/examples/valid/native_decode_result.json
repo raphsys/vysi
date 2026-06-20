@@ -1,0 +1,66 @@
+{
+  "decode_state": "partial",
+  "document_id": "document_example001",
+  "error_refs": [],
+  "header": {
+    "content_hash": "86d16081d9d2b44ac3fe51897466a2386f3c90e6f3eab212747ad8b72efbd5c3",
+    "contract_id": "decode_contract_example001",
+    "created_at": "2026-06-19T20:00:00Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "revision": 1,
+    "schema_id": "document_source.native_decode_result",
+    "schema_version": "2.0.0",
+    "status": "review",
+    "supersedes": null
+  },
+  "output_slots": {
+    "annotations": {
+      "reason_codes": [],
+      "state": "not_applicable"
+    },
+    "metadata": {
+      "reason_codes": [],
+      "state": "not_applicable"
+    },
+    "native": {
+      "reason_codes": [
+        "DS-DEC-002"
+      ],
+      "ref": {
+        "contract_id": "native_contract_example001",
+        "path": "contracts/native_document.json",
+        "schema_id": "document_source.native_document",
+        "schema_version": "2.0.0",
+        "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+      },
+      "state": "partial"
+    },
+    "relationships": {
+      "reason_codes": [],
+      "state": "not_applicable"
+    },
+    "resources": {
+      "reason_codes": [],
+      "state": "not_applicable"
+    },
+    "styles": {
+      "reason_codes": [],
+      "state": "not_applicable"
+    }
+  },
+  "profile_kind": "wordprocessing",
+  "reader_attempt_ref": {
+    "contract_id": "reader_contract_example001",
+    "path": "logs/reader_attempts.json",
+    "schema_id": "document_source.reader_attempt_catalog",
+    "schema_version": "2.0.0",
+    "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  "selected_reader": {
+    "reader_id": "vysi.ooxml.docx",
+    "reader_version": "0.2.0",
+    "sandbox_profile": "document-source-default"
+  }
+}

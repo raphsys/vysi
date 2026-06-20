@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/container_part_catalog.schema.json",
+  "title": "ContainerPartCatalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "document_id",
+    "container_kind",
+    "parts",
+    "relationships"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "container_kind": {
+      "type": "string"
+    },
+    "parts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "part_id",
+          "path",
+          "part_kind",
+          "read_state",
+          "opaque",
+          "security_flags"
+        ],
+        "properties": {
+          "part_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "path": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/portablePath"
+          },
+          "part_kind": {
+            "type": "string"
+          },
+          "media_type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "compressed_size": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "size_bytes": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "sha256": {
+            "anyOf": [
+              {
+                "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/sha256"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "compression": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "parent_part_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "read_state": {
+            "type": "string",
+            "enum": [
+              "not_read",
+              "metadata_only",
+              "hashed",
+              "preserved",
+              "failed",
+              "blocked"
+            ]
+          },
+          "opaque": {
+            "type": "boolean"
+          },
+          "security_flags": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "stored_ref": {
+            "anyOf": [
+              {
+                "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/reference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "relationship_id",
+          "source_part_id",
+          "relationship_type",
+          "target",
+          "target_mode",
+          "external"
+        ],
+        "properties": {
+          "relationship_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "source_part_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "relationship_type": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "target_mode": {
+            "type": "string",
+            "enum": [
+              "internal",
+              "external"
+            ]
+          },
+          "external": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

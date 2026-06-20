@@ -1,0 +1,26 @@
+{
+  "document_id": "document_example001",
+  "header": {
+    "content_hash": "fdbb22041df384d814425bf9f68dab1eb4063064932005786c58713e66a79a3d",
+    "contract_id": "metadata_contract_example001",
+    "created_at": "2026-06-19T20:00:00Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "revision": 1,
+    "schema_id": "document_source.native_metadata_catalog",
+    "schema_version": "2.0.0",
+    "status": "ok",
+    "supersedes": null
+  },
+  "items": [
+    {
+      "metadata_id": "metadata_example001",
+      "name": "creator",
+      "namespace": "dcterms",
+      "sensitivity": "personal",
+      "source_address": "docProps/core.xml#/creator",
+      "value": "Example"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "document_id": "document_example001",
+  "header": {
+    "content_hash": "6b70d45007fdd32ed07c69f4adfa047b1924b377a8752a70e848c3fdedc16f9e",
+    "contract_id": "preservation_contract_example001",
+    "created_at": "2026-06-19T20:00:00Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.8.1",
+    "revision": 1,
+    "schema_id": "document_source.preservation_report",
+    "schema_version": "2.8.0",
+    "status": "review",
+    "supersedes": null
+  },
+  "losses": [],
+  "opaque_preserved_count": 0,
+  "roundtrip_risk": "medium",
+  "transitions": [
+    {
+      "confidence": 1.0,
+      "determinism": "deterministic",
+      "evidence_refs": [
+        "manifests/container/document_example001.json"
+      ],
+      "exactness": "exact",
+      "from_layer": "binary",
+      "input_refs": [
+        "artifact_example001"
+      ],
+      "loss_refs": [],
+      "method": "container_inventory",
+      "output_refs": [
+        "container_contract_example001"
+      ],
+      "producer": "vysi.document_source",
+      "producer_version": "0.6.0",
+      "state": "lossless",
+      "to_layer": "container"
+    }
+  ]
+}

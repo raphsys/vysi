@@ -1,0 +1,51 @@
+{
+  "document_id": "document_example001",
+  "header": {
+    "content_hash": "c8d606b7b9f63eae2f47f1c03e97fa560845bbc4316d5c964ed31897f124c4d4",
+    "contract_id": "technical_ir_contract001",
+    "created_at": "2026-06-19T20:00:00Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "revision": 1,
+    "schema_id": "document_source.technical_document_ir",
+    "schema_version": "2.0.0",
+    "status": "ok",
+    "supersedes": null
+  },
+  "root_unit_ids": [
+    "ir_section_example001"
+  ],
+  "units": [
+    {
+      "kind": "container",
+      "ordinal": 0,
+      "origin": "native_projection",
+      "parent_id": null,
+      "protected": false,
+      "resource_refs": [],
+      "source_native_ids": [
+        "section_example001"
+      ],
+      "style_refs": [],
+      "technical_properties": [],
+      "text": null,
+      "unit_id": "ir_section_example001"
+    },
+    {
+      "kind": "text",
+      "ordinal": 0,
+      "origin": "native_projection",
+      "parent_id": "ir_section_example001",
+      "protected": false,
+      "resource_refs": [],
+      "source_native_ids": [
+        "paragraph_example001"
+      ],
+      "style_refs": [],
+      "technical_properties": [],
+      "text": "Bonjour",
+      "unit_id": "ir_text_example001"
+    }
+  ]
+}

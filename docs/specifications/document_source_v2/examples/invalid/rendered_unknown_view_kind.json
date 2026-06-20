@@ -1,0 +1,72 @@
+{
+  "document_id": "document_example001",
+  "header": {
+    "content_hash": "b4bf67c015b49205b74cdb0b004153e1623da6dbc4a85dd128680728996badaf",
+    "contract_id": "rendered_view_catalo_tdp7qfh2eeaenqilis6xixvcxv",
+    "created_at": "2026-06-20T18:08:38.026889Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.8.0",
+    "revision": 1,
+    "schema_id": "document_source.rendered_view_catalog",
+    "schema_version": "2.7.0",
+    "status": "review",
+    "supersedes": null
+  },
+  "surfaces": [
+    {
+      "asset_refs": [
+        "asset_zqey6knmto35vom7m2zjw2sray"
+      ],
+      "coordinate_space_id": "coordspace_dqpn25tnonprmrhrzcs7in76xr",
+      "dpi": 96.0,
+      "fidelity": "approximate",
+      "height": 1123.0,
+      "media_type": "image/svg+xml",
+      "native_unit_refs": [
+        "line_zqey6knmto35vom7m2zjw2sray"
+      ],
+      "ordinal": 0,
+      "rotation": 0,
+      "status": "partial",
+      "surface_id": "surface_zqey6knmto35vom7m2zjw2sray",
+      "surface_kind": "text_preview",
+      "unit": "px",
+      "view_id": "view_zqey6knmto35vom7m2zjw2sray",
+      "width": 794.0
+    }
+  ],
+  "views": [
+    {
+      "determinism": "environment_bound",
+      "environment": {
+        "field_update": "disabled",
+        "formula_recalculation": "disabled",
+        "locale": "C.UTF-8",
+        "machine": "x86_64",
+        "macros": "disabled",
+        "network": "denied",
+        "platform": "linux",
+        "profile": "technical_preview",
+        "python": "3.10.20",
+        "renderer_family": "vysi_builtin_reference_renderer",
+        "timezone": "UTC"
+      },
+      "environment_hash": "1111111111111111111111111111111111111111111111111111111111111111",
+      "font_substitutions": [
+        "document_fonts→generic_monospace"
+      ],
+      "locale": "C.UTF-8",
+      "renderer": "vysi_builtin_reference_renderer",
+      "renderer_version": "0.8.0",
+      "requested_profile": "technical_preview",
+      "status": "partial",
+      "timezone": "UTC",
+      "view_id": "view_zqey6knmto35vom7m2zjw2sray",
+      "view_kind": "pixel_perfect_magic",
+      "warnings": [
+        "technical_preview_layout_not_native"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/feature_coverage_report.schema.json",
+  "title": "FeatureCoverageReport",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "document_id",
+    "items",
+    "axis_scores"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "feature",
+          "axis",
+          "preservation_stage",
+          "basis",
+          "encountered",
+          "required",
+          "extracted",
+          "preserved",
+          "projected",
+          "rendered",
+          "opaque",
+          "approximated",
+          "unsupported",
+          "omitted",
+          "severity",
+          "evidence_refs"
+        ],
+        "properties": {
+          "feature": {
+            "type": "string",
+            "minLength": 1
+          },
+          "encountered": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "extracted": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "preserved": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "projected": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "rendered": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "opaque": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "approximated": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "unsupported": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "omitted": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "severity": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/severity"
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "axis": {
+            "type": "string",
+            "enum": [
+              "binary",
+              "structural",
+              "technical_semantic",
+              "style",
+              "relationship",
+              "visual",
+              "interactive",
+              "computational",
+              "roundtrip"
+            ]
+          },
+          "basis": {
+            "type": "string",
+            "minLength": 1
+          },
+          "preservation_stage": {
+            "type": "string",
+            "enum": [
+              "binary_to_container",
+              "container_to_native",
+              "native_to_technical_ir",
+              "native_to_rendered",
+              "rendered_to_asset",
+              "roundtrip"
+            ]
+          },
+          "required": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "axis_scores": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "binary",
+        "structural",
+        "technical_semantic",
+        "style",
+        "relationship",
+        "visual",
+        "interactive",
+        "computational",
+        "roundtrip"
+      ],
+      "properties": {
+        "binary": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "structural": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "technical_semantic": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "style": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "relationship": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "visual": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "interactive": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "computational": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "roundtrip": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    }
+  }
+}

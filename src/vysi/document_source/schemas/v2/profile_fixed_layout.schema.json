@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/profile_fixed_layout.schema.json",
+  "title": "FixedLayoutNativeProfile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "profile_kind",
+    "profile_version",
+    "document_id",
+    "pages"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "profile_kind": {
+      "const": "fixed_layout"
+    },
+    "profile_version": {
+      "const": "2.0.0"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "page_id",
+          "ordinal",
+          "width_pt",
+          "height_pt",
+          "rotation",
+          "source_address"
+        ],
+        "properties": {
+          "page_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "ordinal": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "width_pt": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "height_pt": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "rotation": {
+            "type": "integer",
+            "enum": [
+              0,
+              90,
+              180,
+              270
+            ]
+          },
+          "source_address": {
+            "type": "string"
+          },
+          "box_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "repaired": {
+      "type": "boolean"
+    },
+    "encrypted": {
+      "type": "boolean"
+    }
+  }
+}

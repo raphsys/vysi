@@ -1,0 +1,71 @@
+{
+  "coordinate_spaces": [
+    {
+      "axis_x": "right",
+      "axis_y": "down",
+      "coordinate_space_id": "coordspace_dqpn25tnonprmrhrzcs7in76xr",
+      "origin": "top_left",
+      "owner_id": "surface_zqey6knmto35vom7m2zjw2sray",
+      "transform_to_parent": null,
+      "unit": "px"
+    }
+  ],
+  "document_id": "document_example001",
+  "geometries": [
+    {
+      "clipped": false,
+      "confidence": 1.0,
+      "coordinate_space_id": "coordspace_dqpn25tnonprmrhrzcs7in76xr",
+      "geometry_id": "geometry_dqpn25tnonprmrhrzcs7in76xr",
+      "geometry_kind": "bbox",
+      "method": "vysi_builtin_svg_canvas",
+      "native_unit_refs": [],
+      "owner_id": "surface_zqey6knmto35vom7m2zjw2sray",
+      "role": "surface",
+      "serialized": true,
+      "source": "derived",
+      "values": [
+        0.0,
+        0.0,
+        794.0,
+        1123.0
+      ],
+      "visibility": "not_assessed"
+    },
+    {
+      "clipped": false,
+      "confidence": 1.0,
+      "coordinate_space_id": "coordspace_dqpn25tnonprmrhrzcs7in76xr",
+      "geometry_id": "geometry_visibleline000000000000001",
+      "geometry_kind": "bbox",
+      "method": "vysi_builtin_svg_element_bbox",
+      "native_unit_refs": [
+        "line_zqey6knmto35vom7m2zjw2sray"
+      ],
+      "owner_id": "surface_zqey6knmto35vom7m2zjw2sray",
+      "role": "text_line",
+      "serialized": true,
+      "source": "rendered",
+      "values": [
+        48.0,
+        82.0,
+        120.0,
+        20.0
+      ],
+      "visibility": "mostly_visible"
+    }
+  ],
+  "header": {
+    "content_hash": "95288dc12baa1eec6b6bf55469ae0f8d9dcffbaf2106ced059d72c6cfb873164",
+    "contract_id": "geometry_catalog_v2233xh62aiwjprhkhhtn7w3qk",
+    "created_at": "2026-06-20T18:08:38.027104Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.8.1",
+    "revision": 1,
+    "schema_id": "document_source.geometry_catalog",
+    "schema_version": "2.8.0",
+    "status": "review",
+    "supersedes": null
+  }
+}

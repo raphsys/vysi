@@ -1,0 +1,43 @@
+{
+  "coordinate_spaces": [
+    {
+      "axis_x": "right",
+      "axis_y": "down",
+      "coordinate_space_id": "coordspace_dqpn25tnonprmrhrzcs7in76xr",
+      "origin": "top_left",
+      "owner_id": "surface_zqey6knmto35vom7m2zjw2sray",
+      "transform_to_parent": null,
+      "unit": "px"
+    }
+  ],
+  "document_id": "document_example001",
+  "geometries": [
+    {
+      "confidence": 1.0,
+      "coordinate_space_id": "coordspace_dqpn25tnonprmrhrzcs7in76xr",
+      "geometry_id": "geometry_dqpn25tnonprmrhrzcs7in76xr",
+      "geometry_kind": "bbox",
+      "owner_id": "surface_zqey6knmto35vom7m2zjw2sray",
+      "source": "derived",
+      "values": [
+        0.0,
+        0.0,
+        794.0,
+        1123.0
+      ]
+    }
+  ],
+  "header": {
+    "content_hash": "f98146d5bbae66e311753016e25e712ed616e268292f836441cb7a5b927262b2",
+    "contract_id": "geometry_catalog_v2233xh62aiwjprhkhhtn7w3qk",
+    "created_at": "2026-06-20T18:08:38.027104Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.8.0",
+    "revision": 1,
+    "schema_id": "document_source.geometry_catalog",
+    "schema_version": "2.7.0",
+    "status": "review",
+    "supersedes": null
+  }
+}

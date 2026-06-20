@@ -1,0 +1,54 @@
+# Environnements virtuels et configuration locale
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+.vysi/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Outils de test, qualité et couverture
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Éditeurs et système
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Sorties d'exécution (conserver la structure des dossiers)
+runtime/results/*
+!runtime/results/.gitkeep
+runtime/tmp/*
+!runtime/tmp/.gitkeep
+runtime/audit/*
+!runtime/audit/.gitkeep
+
+# Caches de validation des contrats
+.contract-validation/
+
+# Données, docs et scripts locaux
+validation_corpus/
+docs/codex/
+scripts/
+runtime/

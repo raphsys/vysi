@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/native_document.schema.json",
+  "title": "NativeDocument",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "document_id",
+    "profile_kind",
+    "profile_version",
+    "profile_ref",
+    "root_unit_ids",
+    "opaque_parts"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "profile_kind": {
+      "type": "string",
+      "enum": [
+        "plain_text",
+        "wordprocessing",
+        "spreadsheet",
+        "presentation",
+        "fixed_layout",
+        "raster",
+        "legacy_ole",
+        "unknown"
+      ]
+    },
+    "profile_version": {
+      "type": "string",
+      "pattern": "^2\\.[0-9]+\\.[0-9]+$"
+    },
+    "profile_ref": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/reference"
+    },
+    "root_unit_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+      }
+    },
+    "opaque_parts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "opaque_id",
+          "source_address",
+          "reason",
+          "preserved_ref"
+        ],
+        "properties": {
+          "opaque_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "source_address": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "preserved_ref": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/reference"
+          }
+        }
+      }
+    },
+    "capabilities": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

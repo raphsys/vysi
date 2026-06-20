@@ -1,0 +1,29 @@
+{
+  "attempts": [
+    {
+      "attempt_id": "attempt_example001",
+      "document_id": "document_example001",
+      "error_refs": [],
+      "fallback": false,
+      "finished_at": "2026-06-19T20:00:01Z",
+      "outcome": "partial",
+      "reader_id": "vysi.ooxml.docx",
+      "reader_version": "0.2.0",
+      "started_at": "2026-06-19T20:00:00Z"
+    }
+  ],
+  "header": {
+    "content_hash": "198bf560c9c4a96ed46bafbb0a525e9111ccfb2317b33a0a9a61ae1f92d2e10b",
+    "contract_id": "reader_contract_example001",
+    "created_at": "2026-06-19T20:00:00Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "revision": 1,
+    "schema_id": "document_source.reader_attempt_catalog",
+    "schema_version": "2.0.0",
+    "status": "ok",
+    "supersedes": null
+  },
+  "run_id": "run_example001"
+}

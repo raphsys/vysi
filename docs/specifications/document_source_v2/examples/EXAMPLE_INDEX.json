@@ -1,0 +1,276 @@
+{
+  "invalid": [
+    {
+      "file": "request_no_sources.json",
+      "reason": "sources minItems=1",
+      "schema": "source_ingestion_request"
+    },
+    {
+      "file": "request_network_invalid.json",
+      "reason": "network enum",
+      "schema": "source_ingestion_request"
+    },
+    {
+      "file": "slot_available_without_ref.json",
+      "reason": "available requires ref",
+      "schema": "document_envelope"
+    },
+    {
+      "file": "package_absolute_path.json",
+      "reason": "portable path forbids absolute",
+      "schema": "package_manifest"
+    },
+    {
+      "file": "profile_text_negative_offset.json",
+      "reason": "negative offset",
+      "schema": "profile_plain_text"
+    },
+    {
+      "file": "security_exec_true.json",
+      "reason": "active execution must be false",
+      "schema": "security_clearance"
+    },
+    {
+      "file": "mapping_confidence_over_1.json",
+      "reason": "confidence <=1",
+      "schema": "representation_mapping_catalog"
+    },
+    {
+      "file": "native_unknown_property.json",
+      "reason": "additionalProperties false",
+      "schema": "native_document"
+    },
+    {
+      "file": "slot_unsupported_without_reason.json",
+      "reason": "unsupported requires reason code",
+      "schema": "document_envelope"
+    },
+    {
+      "file": "coverage_invalid_preservation_stage.json",
+      "reason": "preservation_stage enum",
+      "schema": "feature_coverage_report"
+    },
+    {
+      "file": "coverage_missing_required.json",
+      "reason": "required field is mandatory",
+      "schema": "feature_coverage_report"
+    },
+    {
+      "file": "validation_rejected_commit_eligible.json",
+      "reason": "rejected package cannot be commit eligible",
+      "schema": "validation_report"
+    },
+    {
+      "file": "validation_eligible_with_blocking_failure.json",
+      "reason": "commit eligible requires zero blocking failures",
+      "schema": "validation_report"
+    },
+    {
+      "file": "validation_eligible_without_documents.json",
+      "reason": "commit eligible requires at least one validated document",
+      "schema": "validation_report"
+    },
+    {
+      "file": "rendered_surface_object_asset_ref.json",
+      "reason": "surface asset_refs contain asset identifiers, not contract references",
+      "schema": "rendered_view_catalog"
+    },
+    {
+      "file": "derived_asset_missing_media_type.json",
+      "reason": "artifact reference requires media_type",
+      "schema": "derived_asset_catalog"
+    },
+    {
+      "file": "geometry_missing_method.json",
+      "reason": "geometry method is mandatory",
+      "schema": "geometry_catalog"
+    },
+    {
+      "file": "request_render_none_with_profile.json",
+      "reason": "mode none forbids profiles",
+      "schema": "source_ingestion_request"
+    },
+    {
+      "file": "request_render_required_without_profile.json",
+      "reason": "required rendering needs at least one profile",
+      "schema": "source_ingestion_request"
+    },
+    {
+      "file": "rendered_unknown_view_kind.json",
+      "reason": "view_kind is a closed rendering result kind",
+      "schema": "rendered_view_catalog"
+    },
+    {
+      "file": "rendered_surface_missing_visibility_basis.json",
+      "reason": "visibility basis is mandatory for every rendered surface",
+      "schema": "rendered_view_catalog"
+    },
+    {
+      "file": "geometry_unknown_visibility.json",
+      "reason": "geometry visibility is a closed vocabulary",
+      "schema": "geometry_catalog"
+    }
+  ],
+  "valid": [
+    {
+      "file": "source_ingestion_request.json",
+      "schema": "source_ingestion_request"
+    },
+    {
+      "file": "normalized_source_request.json",
+      "schema": "normalized_source_request"
+    },
+    {
+      "file": "run_manifest.json",
+      "schema": "run_manifest"
+    },
+    {
+      "file": "acquired_source_bundle.json",
+      "schema": "acquired_source_bundle"
+    },
+    {
+      "file": "format_probe_report.json",
+      "schema": "format_probe_report"
+    },
+    {
+      "file": "security_clearance.json",
+      "schema": "security_clearance"
+    },
+    {
+      "file": "source_identity_manifest.json",
+      "schema": "source_identity_manifest"
+    },
+    {
+      "file": "container_part_catalog.json",
+      "schema": "container_part_catalog"
+    },
+    {
+      "file": "native_document.json",
+      "schema": "native_document"
+    },
+    {
+      "file": "native_style_catalog.json",
+      "schema": "native_style_catalog"
+    },
+    {
+      "file": "native_relationship_catalog.json",
+      "schema": "native_relationship_catalog"
+    },
+    {
+      "file": "native_resource_catalog.json",
+      "schema": "native_resource_catalog"
+    },
+    {
+      "file": "technical_document_ir.json",
+      "schema": "technical_document_ir"
+    },
+    {
+      "file": "rendered_view_catalog.json",
+      "schema": "rendered_view_catalog"
+    },
+    {
+      "file": "representation_mapping_catalog.json",
+      "schema": "representation_mapping_catalog"
+    },
+    {
+      "file": "feature_coverage_report.json",
+      "schema": "feature_coverage_report"
+    },
+    {
+      "file": "preservation_report.json",
+      "schema": "preservation_report"
+    },
+    {
+      "file": "error_catalog.json",
+      "schema": "error_catalog"
+    },
+    {
+      "file": "checkpoint_manifest.json",
+      "schema": "checkpoint_manifest"
+    },
+    {
+      "file": "reader_attempt_catalog.json",
+      "schema": "reader_attempt_catalog"
+    },
+    {
+      "file": "validation_report.json",
+      "schema": "validation_report"
+    },
+    {
+      "file": "document_envelope.json",
+      "schema": "document_envelope"
+    },
+    {
+      "file": "package_manifest.json",
+      "schema": "package_manifest"
+    },
+    {
+      "file": "profile_plain_text.json",
+      "schema": "profile_plain_text"
+    },
+    {
+      "file": "profile_wordprocessing.json",
+      "schema": "profile_wordprocessing"
+    },
+    {
+      "file": "profile_spreadsheet.json",
+      "schema": "profile_spreadsheet"
+    },
+    {
+      "file": "profile_presentation.json",
+      "schema": "profile_presentation"
+    },
+    {
+      "file": "profile_fixed_layout.json",
+      "schema": "profile_fixed_layout"
+    },
+    {
+      "file": "profile_raster.json",
+      "schema": "profile_raster"
+    },
+    {
+      "file": "profile_legacy_ole.json",
+      "schema": "profile_legacy_ole"
+    },
+    {
+      "file": "policy_set.json",
+      "schema": "policy_set"
+    },
+    {
+      "file": "capability_manifest.json",
+      "schema": "capability_manifest"
+    },
+    {
+      "file": "access_clearance.json",
+      "schema": "access_clearance"
+    },
+    {
+      "file": "native_decode_result.json",
+      "schema": "native_decode_result"
+    },
+    {
+      "file": "native_metadata_catalog.json",
+      "schema": "native_metadata_catalog"
+    },
+    {
+      "file": "native_annotation_catalog.json",
+      "schema": "native_annotation_catalog"
+    },
+    {
+      "file": "geometry_catalog.json",
+      "schema": "geometry_catalog"
+    },
+    {
+      "file": "derived_asset_catalog.json",
+      "schema": "derived_asset_catalog"
+    },
+    {
+      "file": "conversion_report_catalog.json",
+      "schema": "conversion_report_catalog"
+    },
+    {
+      "file": "audit_event_catalog.json",
+      "schema": "audit_event_catalog"
+    }
+  ]
+}

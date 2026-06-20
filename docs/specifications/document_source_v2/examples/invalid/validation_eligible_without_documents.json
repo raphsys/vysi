@@ -1,0 +1,66 @@
+{
+  "checks": [
+    {
+      "blocking": false,
+      "check_id": "check_j76qzzbsxhrxavwtux3dypltnz",
+      "code": "DS-VAL-003",
+      "evidence_refs": [
+        "quality/document_example001/feature_coverage_report.json"
+      ],
+      "kind": "policy",
+      "message": "Revue explicite autorisée par la politique.",
+      "scope": "document_example001",
+      "severity": "warning",
+      "status": "warning"
+    }
+  ],
+  "commit_eligible": true,
+  "document_results": [],
+  "error_refs": [
+    "error_example001"
+  ],
+  "header": {
+    "content_hash": "168b4696ccaee208e822556625ab109480040518cb5d36c4a74e67a714639b4b",
+    "contract_id": "validation_report_j76qzzbsxhrxavwtux3dypltnz",
+    "created_at": "2026-06-20T16:49:29.305740Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.7.0",
+    "revision": 1,
+    "schema_id": "document_source.validation_report",
+    "schema_version": "2.6.0",
+    "status": "review",
+    "supersedes": null
+  },
+  "package_status": "review",
+  "policy_ref": {
+    "contract_id": "policy_set_example001",
+    "path": "request/policy_set.json",
+    "schema_id": "document_source.policy_set",
+    "schema_version": "2.0.0",
+    "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  "run_id": "run_example001",
+  "summary": {
+    "blocking_failures": 0,
+    "catalogued_errors": 1,
+    "checks_failed": 0,
+    "checks_not_applicable": 0,
+    "checks_passed": 0,
+    "checks_total": 1,
+    "checks_warning": 1,
+    "documents_cancelled": 0,
+    "documents_error": 0,
+    "documents_ok": 0,
+    "documents_rejected": 0,
+    "documents_review": 0,
+    "documents_total": 0
+  },
+  "validated_snapshot": {
+    "artifact_count": 12,
+    "artifact_set_sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+    "checkpoint_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+    "contract_count": 10,
+    "reference_count": 8
+  }
+}

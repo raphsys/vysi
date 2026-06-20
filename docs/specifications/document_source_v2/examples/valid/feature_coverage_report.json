@@ -1,0 +1,49 @@
+{
+  "axis_scores": {
+    "binary": 1.0,
+    "computational": null,
+    "interactive": null,
+    "relationship": 1.0,
+    "roundtrip": 0.7,
+    "structural": 0.9,
+    "style": 0.5,
+    "technical_semantic": 1.0,
+    "visual": null
+  },
+  "document_id": "document_example001",
+  "header": {
+    "content_hash": "1533ea24b00fc5b3620ff100fbe6a39c429201840ea63d6e32ddb239bc0f0ea1",
+    "contract_id": "coverage_contract_example001",
+    "created_at": "2026-06-19T20:00:00Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.8.1",
+    "revision": 1,
+    "schema_id": "document_source.feature_coverage_report",
+    "schema_version": "2.8.0",
+    "status": "review",
+    "supersedes": null
+  },
+  "items": [
+    {
+      "approximated": 0,
+      "axis": "structural",
+      "basis": "Paragraphe natif extrait, préservé et projeté vers TechnicalDocumentIR",
+      "encountered": 1,
+      "evidence_refs": [
+        "paragraph_example001"
+      ],
+      "extracted": 1,
+      "feature": "paragraphs",
+      "omitted": 0,
+      "opaque": 0,
+      "preservation_stage": "native_to_technical_ir",
+      "preserved": 1,
+      "projected": 1,
+      "rendered": 0,
+      "required": 1,
+      "severity": "info",
+      "unsupported": 0
+    }
+  ]
+}

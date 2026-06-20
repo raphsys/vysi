@@ -1,0 +1,213 @@
+{
+  "annotations": {
+    "reason_codes": [],
+    "ref": {
+      "contract_id": "annotation_contract_example001",
+      "path": "contracts/native_annotation_catalog.json",
+      "schema_id": "document_source.native_annotation_catalog",
+      "schema_version": "2.0.0",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "state": "available"
+  },
+  "assets": {
+    "reason_codes": [],
+    "ref": {
+      "contract_id": "assets_contract_example001",
+      "path": "contracts/derived_asset_catalog.json",
+      "schema_id": "document_source.derived_asset_catalog",
+      "schema_version": "2.0.0",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "state": "available"
+  },
+  "binary": {
+    "reason_codes": [],
+    "ref": {
+      "contract_id": "artifact_example001",
+      "path": "native/artifacts/sample.docx",
+      "schema_id": "document_source.binary_artifact",
+      "schema_version": "2.0.0",
+      "sha256": "2222222222222222222222222222222222222222222222222222222222222222"
+    },
+    "state": "available"
+  },
+  "child_document_ids": [],
+  "container": {
+    "reason_codes": [],
+    "ref": {
+      "contract_id": "container_contract_example001",
+      "path": "contracts/container_part_catalog.json",
+      "schema_id": "document_source.container_part_catalog",
+      "schema_version": "2.0.0",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "state": "available"
+  },
+  "conversions": {
+    "reason_codes": [],
+    "ref": {
+      "contract_id": "conversion_contract_example001",
+      "path": "contracts/conversion_report_catalog.json",
+      "schema_id": "document_source.conversion_report_catalog",
+      "schema_version": "2.0.0",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "state": "available"
+  },
+  "coverage": {
+    "reason_codes": [],
+    "ref": {
+      "contract_id": "coverage_contract_example001",
+      "path": "reports/feature_coverage_report.json",
+      "schema_id": "document_source.feature_coverage_report",
+      "schema_version": "2.0.0",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "state": "available"
+  },
+  "document_id": "document_example001",
+  "errors": {
+    "reason_codes": [],
+    "ref": {
+      "contract_id": "errors_contract_example001",
+      "path": "errors/error_catalog.json",
+      "schema_id": "document_source.error_catalog",
+      "schema_version": "2.0.0",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "state": "available"
+  },
+  "final_status": "review",
+  "geometry": {
+    "reason_codes": [],
+    "ref": {
+      "contract_id": "geometry_contract_example001",
+      "path": "contracts/geometry_catalog.json",
+      "schema_id": "document_source.geometry_catalog",
+      "schema_version": "2.0.0",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "state": "available"
+  },
+  "header": {
+    "content_hash": "392a76def6b7c0e23b095a100bf7364a236ae3dbf53a64b001956fc1aa2af005",
+    "contract_id": "envelope_contract_example001",
+    "created_at": "2026-06-19T20:00:00Z",
+    "extensions": {},
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "revision": 1,
+    "schema_id": "document_source.document_envelope",
+    "schema_version": "2.0.0",
+    "status": "review",
+    "supersedes": null
+  },
+  "mappings": {
+    "reason_codes": [],
+    "ref": {
+      "contract_id": "mapping_contract_example001",
+      "path": "contracts/representation_mapping_catalog.json",
+      "schema_id": "document_source.representation_mapping_catalog",
+      "schema_version": "2.0.0",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "state": "available"
+  },
+  "metadata": {
+    "reason_codes": [],
+    "ref": {
+      "contract_id": "metadata_contract_example001",
+      "path": "contracts/native_metadata_catalog.json",
+      "schema_id": "document_source.native_metadata_catalog",
+      "schema_version": "2.0.0",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "state": "available"
+  },
+  "native": {
+    "reason_codes": [],
+    "ref": {
+      "contract_id": "native_contract_example001",
+      "path": "contracts/native_document.json",
+      "schema_id": "document_source.native_document",
+      "schema_version": "2.0.0",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "state": "available"
+  },
+  "parent_document_id": null,
+  "preservation": {
+    "reason_codes": [],
+    "ref": {
+      "contract_id": "preservation_contract_example001",
+      "path": "reports/preservation_report.json",
+      "schema_id": "document_source.preservation_report",
+      "schema_version": "2.0.0",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "state": "available"
+  },
+  "relationships": {
+    "reason_codes": [],
+    "ref": {
+      "contract_id": "relationship_contract_example001",
+      "path": "contracts/native_relationship_catalog.json",
+      "schema_id": "document_source.native_relationship_catalog",
+      "schema_version": "2.0.0",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "state": "available"
+  },
+  "rendered": {
+    "reason_codes": [],
+    "state": "not_requested"
+  },
+  "resources": {
+    "reason_codes": [],
+    "ref": {
+      "contract_id": "resource_contract_example001",
+      "path": "contracts/native_resource_catalog.json",
+      "schema_id": "document_source.native_resource_catalog",
+      "schema_version": "2.0.0",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "state": "available"
+  },
+  "security": {
+    "reason_codes": [],
+    "ref": {
+      "contract_id": "security_contract_example001",
+      "path": "reports/security_clearance.json",
+      "schema_id": "document_source.security_clearance",
+      "schema_version": "2.0.0",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "state": "available"
+  },
+  "styles": {
+    "reason_codes": [],
+    "ref": {
+      "contract_id": "style_contract_example001",
+      "path": "contracts/native_style_catalog.json",
+      "schema_id": "document_source.native_style_catalog",
+      "schema_version": "2.0.0",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "state": "available"
+  },
+  "technical_ir": {
+    "reason_codes": [],
+    "ref": {
+      "contract_id": "technical_ir_contract001",
+      "path": "contracts/technical_document_ir.json",
+      "schema_id": "document_source.technical_document_ir",
+      "schema_version": "2.0.0",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    "state": "available"
+  },
+  "warnings": [
+    "reader partial"
+  ]
+}

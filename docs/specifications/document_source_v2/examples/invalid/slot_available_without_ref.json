@@ -1,0 +1,158 @@
+{
+  "header": {
+    "schema_id": "document_source.document_envelope",
+    "schema_version": "2.0.0",
+    "contract_id": "envelope_contract_example001",
+    "content_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "producer": "vysi.document_source",
+    "producer_version": "0.2.0",
+    "created_at": "2026-06-19T20:00:00Z",
+    "status": "review",
+    "revision": 1,
+    "supersedes": null,
+    "extensions": {}
+  },
+  "document_id": "document_example001",
+  "binary": {
+    "state": "available",
+    "ref": {
+      "path": "native/artifacts/sample.docx",
+      "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+      "schema_id": "document_source.binary_artifact",
+      "schema_version": "2.0.0",
+      "contract_id": "artifact_example001"
+    },
+    "reason_codes": []
+  },
+  "container": {
+    "state": "available",
+    "ref": {
+      "path": "contracts/container_part_catalog.json",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "schema_id": "document_source.container_part_catalog",
+      "schema_version": "2.0.0",
+      "contract_id": "container_contract_example001"
+    },
+    "reason_codes": []
+  },
+  "native": {
+    "state": "available",
+    "ref": {
+      "path": "contracts/native_document.json",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "schema_id": "document_source.native_document",
+      "schema_version": "2.0.0",
+      "contract_id": "native_contract_example001"
+    },
+    "reason_codes": []
+  },
+  "styles": {
+    "state": "available",
+    "ref": {
+      "path": "contracts/native_style_catalog.json",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "schema_id": "document_source.native_style_catalog",
+      "schema_version": "2.0.0",
+      "contract_id": "style_contract_example001"
+    },
+    "reason_codes": []
+  },
+  "relationships": {
+    "state": "available",
+    "ref": {
+      "path": "contracts/native_relationship_catalog.json",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "schema_id": "document_source.native_relationship_catalog",
+      "schema_version": "2.0.0",
+      "contract_id": "relationship_contract_example001"
+    },
+    "reason_codes": []
+  },
+  "resources": {
+    "state": "available",
+    "ref": {
+      "path": "contracts/native_resource_catalog.json",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "schema_id": "document_source.native_resource_catalog",
+      "schema_version": "2.0.0",
+      "contract_id": "resource_contract_example001"
+    },
+    "reason_codes": []
+  },
+  "technical_ir": {
+    "state": "available",
+    "ref": {
+      "path": "contracts/technical_document_ir.json",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "schema_id": "document_source.technical_document_ir",
+      "schema_version": "2.0.0",
+      "contract_id": "technical_ir_contract001"
+    },
+    "reason_codes": []
+  },
+  "rendered": {
+    "state": "available",
+    "reason_codes": []
+  },
+  "mappings": {
+    "state": "available",
+    "ref": {
+      "path": "contracts/representation_mapping_catalog.json",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "schema_id": "document_source.representation_mapping_catalog",
+      "schema_version": "2.0.0",
+      "contract_id": "mapping_contract_example001"
+    },
+    "reason_codes": []
+  },
+  "coverage": {
+    "state": "available",
+    "ref": {
+      "path": "reports/feature_coverage_report.json",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "schema_id": "document_source.feature_coverage_report",
+      "schema_version": "2.0.0",
+      "contract_id": "coverage_contract_example001"
+    },
+    "reason_codes": []
+  },
+  "preservation": {
+    "state": "available",
+    "ref": {
+      "path": "reports/preservation_report.json",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "schema_id": "document_source.preservation_report",
+      "schema_version": "2.0.0",
+      "contract_id": "preservation_contract_example001"
+    },
+    "reason_codes": []
+  },
+  "security": {
+    "state": "available",
+    "ref": {
+      "path": "reports/security_clearance.json",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "schema_id": "document_source.security_clearance",
+      "schema_version": "2.0.0",
+      "contract_id": "security_contract_example001"
+    },
+    "reason_codes": []
+  },
+  "errors": {
+    "state": "available",
+    "ref": {
+      "path": "errors/error_catalog.json",
+      "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+      "schema_id": "document_source.error_catalog",
+      "schema_version": "2.0.0",
+      "contract_id": "errors_contract_example001"
+    },
+    "reason_codes": []
+  },
+  "child_document_ids": [],
+  "parent_document_id": null,
+  "final_status": "review",
+  "warnings": [
+    "reader partial"
+  ]
+}

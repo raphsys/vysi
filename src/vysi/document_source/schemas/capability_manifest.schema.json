@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": true,
+  "$id": "https://raphsys.local/schemas/document_source/capability_manifest.schema.json",
+  "title": "capability_manifest",
+  "required": [
+    "header",
+    "capabilities",
+    "limitations"
+  ],
+  "properties": {
+    "header": {
+      "type": "object",
+      "required": [
+        "schema_id",
+        "schema_version",
+        "contract_id",
+        "created_at",
+        "producer"
+      ]
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

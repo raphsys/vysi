@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/native_style_catalog.schema.json",
+  "title": "NativeStyleCatalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "document_id",
+    "styles"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "styles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "style_id",
+          "style_kind",
+          "direct_properties",
+          "resolved_properties",
+          "source_address"
+        ],
+        "properties": {
+          "style_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "style_kind": {
+            "type": "string"
+          },
+          "native_name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "parent_style_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "direct_properties": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/propertyBag"
+          },
+          "resolved_properties": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/propertyBag"
+          },
+          "source_address": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

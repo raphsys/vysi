@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/profile_legacy_ole.schema.json",
+  "title": "LegacyOleNativeProfile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "profile_kind",
+    "profile_version",
+    "document_id",
+    "coverage_level",
+    "storages",
+    "streams"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "profile_kind": {
+      "const": "legacy_ole"
+    },
+    "profile_version": {
+      "const": "2.0.0"
+    },
+    "document_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "coverage_level": {
+      "type": "string",
+      "enum": [
+        "inventory_only",
+        "partial_semantic",
+        "complete_semantic"
+      ]
+    },
+    "storages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "storage_id",
+          "path",
+          "parent_id"
+        ],
+        "properties": {
+          "storage_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "path": {
+            "type": "string"
+          },
+          "parent_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "streams": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "stream_id",
+          "path",
+          "size_bytes",
+          "read_state",
+          "source_address"
+        ],
+        "properties": {
+          "stream_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "path": {
+            "type": "string"
+          },
+          "size_bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sha256": {
+            "anyOf": [
+              {
+                "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/sha256"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "read_state": {
+            "type": "string",
+            "enum": [
+              "not_read",
+              "metadata_only",
+              "hashed",
+              "preserved",
+              "failed",
+              "blocked"
+            ]
+          },
+          "source_address": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "semantic_format_hint": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

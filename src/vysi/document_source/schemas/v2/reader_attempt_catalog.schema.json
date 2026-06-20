@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.vysi.dev/document-source/v2/reader_attempt_catalog.schema.json",
+  "title": "ReaderAttemptCatalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "header",
+    "run_id",
+    "attempts"
+  ],
+  "properties": {
+    "header": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/header"
+    },
+    "run_id": {
+      "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+    },
+    "attempts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "attempt_id",
+          "reader_id",
+          "reader_version",
+          "document_id",
+          "started_at",
+          "finished_at",
+          "outcome",
+          "fallback",
+          "error_refs"
+        ],
+        "properties": {
+          "attempt_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "reader_id": {
+            "type": "string"
+          },
+          "reader_version": {
+            "type": "string"
+          },
+          "document_id": {
+            "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+          },
+          "started_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "finished_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "outcome": {
+            "type": "string",
+            "enum": [
+              "success",
+              "partial",
+              "failed",
+              "timeout",
+              "cancelled",
+              "blocked"
+            ]
+          },
+          "fallback": {
+            "type": "boolean"
+          },
+          "error_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "https://schemas.vysi.dev/document-source/v2/common.schema.json#/$defs/id"
+            }
+          }
+        }
+      }
+    }
+  }
+}
