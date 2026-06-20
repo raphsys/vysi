@@ -5,8 +5,10 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Protocol, runtime_checkable
 
-from .engine import RenderingError, render_document
+from .engine import RenderingError
 from .models import RenderOutput
+from .output_validation import RenderOutputValidationError, validate_backend_output
+from .v082 import render_document
 
 
 @dataclass(frozen=True)
@@ -124,6 +126,62 @@ class BuiltinReferenceRenderer:
         )
 
 
+@dataclass(frozen=True)
+class ValidatedRenderer:
+    """Validation gate applied to every selected renderer, including plugins."""
+
+    delegate: SourceRenderer
+
+    @property
+    def renderer_id(self) -> str:
+        return self.delegate.renderer_id
+
+    @property
+    def renderer_version(self) -> str:
+        return self.delegate.renderer_version
+
+    def capability(self, profile_kind: str, requested_profile: str) -> RendererCapability:
+        return self.delegate.capability(profile_kind, requested_profile)
+
+    def render(
+        self,
+        *,
+        document_id: str,
+        profile: dict[str, Any],
+        native: dict[str, Any],
+        ir: dict[str, Any],
+        artifact_records: list[dict[str, Any]],
+        workspace: Path,
+        requested_profile: str,
+        max_output_bytes: int,
+        check_cancelled: Callable[[], None],
+    ) -> RenderOutput:
+        output = self.delegate.render(
+            document_id=document_id,
+            profile=profile,
+            native=native,
+            ir=ir,
+            artifact_records=artifact_records,
+            workspace=workspace,
+            requested_profile=requested_profile,
+            max_output_bytes=max_output_bytes,
+            check_cancelled=check_cancelled,
+        )
+        try:
+            validate_backend_output(
+                output,
+                document_id=document_id,
+                requested_profile=requested_profile,
+                renderer_id=self.renderer_id,
+                renderer_version=self.renderer_version,
+                required=True,
+                max_output_bytes=max_output_bytes,
+            )
+        except RenderOutputValidationError as exc:
+            raise RenderingError(f"Sortie backend invalide: {exc}") from exc
+        return output
+
+
 def default_renderers(producer_version: str) -> tuple[SourceRenderer, ...]:
     renderer: SourceRenderer = BuiltinReferenceRenderer(producer_version)
     return (renderer,)
@@ -166,4 +224,4 @@ def select_renderer(
             unsupported=True,
         )
     candidates.sort(key=lambda item: (-item[0], item[1]))
-    return candidates[0][2]
+    return ValidatedRenderer(candidates[0][2])
