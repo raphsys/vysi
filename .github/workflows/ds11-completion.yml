@@ -2,7 +2,9 @@ name: DS11 completion
 
 on:
   push:
-    branches: [ds11-completion-082]
+    branches:
+      - ds11-completion-082
+      - work/ds11-continuation-20260620
   pull_request:
     branches: [main]
   workflow_dispatch:
