@@ -25,3 +25,9 @@ jobs:
       - run: ruff check src tests
       - run: mypy src/vysi
       - run: pytest -q
+      - run: git archive --format=zip --output=vysi-source.zip HEAD
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vysi-ds11-source
+          path: vysi-source.zip
+          retention-days: 1
