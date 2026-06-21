@@ -124,7 +124,7 @@ def preview_outputs(
         {"document_id": document_id, "view_id": view_id, "ordinal": ordinal, "kind": kind},
     )
     relative = f"rendered/{document_id}/assets/{aid}.svg"
-    provenance = preview.serialized
+    provenance = preview.serialized or (document_id,)
     asset = AssetOutput(
         aid,
         relative,
